@@ -1,0 +1,631 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "0.0.0",
+    "title" : "PRIVATE API"
+  },
+  "basePath" : "/restful",
+  "paths" : {
+    "/" : {
+      "get" : {
+        "tags" : [ "> restful objects supporting resources" ],
+        "description" : "RO Spec v1.0, section 5.1",
+        "produces" : [ "application/json", "application/json;profile=urn:org.restfulobjects:repr-types/home-page" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulObjectsSupportingHomePageRepr"
+            },
+            "headers" : {
+              "Cache-Control" : {
+                "type" : "integer",
+                "format" : "int32",
+                "description" : "RO Spec v1.0, section 2.13",
+                "default" : 86400
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objects/domainapp.app.services.homepage.HomePageViewModel/{objectId}" : {
+      "get" : {
+        "tags" : [ "homepage" ],
+        "description" : "RO Spec v1.0, section 14.1",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/object" ],
+        "parameters" : [ {
+          "name" : "objectId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "domainapp.app.services.homepage.HomePageViewModel , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "$ref" : "#/definitions/domainapp.app.services.homepage.HomePageViewModelRepr"
+            }
+          }
+        }
+      }
+    },
+    "/objects/domainapp.app.services.homepage.HomePageViewModel/{objectId}/collections/objects" : {
+      "get" : {
+        "tags" : [ "homepage" ],
+        "description" : "RO Spec v1.0, section 17.1: resource of domainapp.app.services.homepage.HomePageViewModel#objects",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/object-collection" ],
+        "parameters" : [ {
+          "name" : "objectId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "domainapp.app.services.homepage.HomePageViewModel#objects , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.SimpleObject",
+              "items" : {
+                "$ref" : "#/definitions/simple.SimpleObjectRepr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objects/org.apache.isis.applib.services.config.ConfigurationProperty/{objectId}" : {
+      "get" : {
+        "tags" : [ "> apache isis internals" ],
+        "description" : "RO Spec v1.0, section 14.1",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/object" ],
+        "parameters" : [ {
+          "name" : "objectId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "org.apache.isis.applib.services.config.ConfigurationProperty , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "$ref" : "#/definitions/org.apache.isis.applib.services.config.ConfigurationPropertyRepr"
+            }
+          }
+        }
+      }
+    },
+    "/objects/simple.SimpleObject/{objectId}" : {
+      "get" : {
+        "tags" : [ "simple" ],
+        "description" : "RO Spec v1.0, section 14.1",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/object" ],
+        "parameters" : [ {
+          "name" : "objectId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "simple.SimpleObject , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "$ref" : "#/definitions/simple.SimpleObjectRepr"
+            }
+          }
+        }
+      }
+    },
+    "/objects/simple.SimpleObject/{objectId}/actions/delete/invoke" : {
+      "post" : {
+        "tags" : [ "simple" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of simple.SimpleObject#delete",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ {
+          "name" : "objectId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "object"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "simple.SimpleObject#delete",
+            "schema" : {
+              "type" : "object"
+            }
+          }
+        }
+      }
+    },
+    "/objects/simple.SimpleObject/{objectId}/actions/updateName/invoke" : {
+      "put" : {
+        "tags" : [ "simple" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of simple.SimpleObject#updateName",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ {
+          "name" : "objectId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "object",
+            "properties" : {
+              "name" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "object"
+                  }
+                }
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "simple.SimpleObject#updateName",
+            "schema" : {
+              "$ref" : "#/definitions/simple.SimpleObjectRepr"
+            }
+          }
+        }
+      }
+    },
+    "/services" : {
+      "get" : {
+        "tags" : [ "> restful objects supporting resources" ],
+        "description" : "RO Spec v1.0, section 7.1",
+        "produces" : [ "application/json", "application/json;profile=urn:org.restfulobjects:repr-types/services" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulObjectsSupportingServicesRepr"
+            },
+            "headers" : {
+              "Cache-Control" : {
+                "type" : "integer",
+                "format" : "int32",
+                "default" : 3600
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/ConfigurationServiceMenu" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 15.1",
+        "produces" : [ "application/json", "application/json;profile=urn:org.restfulobjects:repr-types/object" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/ConfigurationServiceMenuRepr"
+            }
+          }
+        }
+      }
+    },
+    "/services/ConfigurationServiceMenu/actions/configuration/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of ConfigurationServiceMenu#configuration",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "ConfigurationServiceMenu#configuration , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of org.apache.isis.applib.services.config.ConfigurationProperty",
+              "items" : {
+                "$ref" : "#/definitions/org.apache.isis.applib.services.config.ConfigurationPropertyRepr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/SimpleObjectMenu" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 15.1",
+        "produces" : [ "application/json", "application/json;profile=urn:org.restfulobjects:repr-types/object" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/SimpleObjectMenuRepr"
+            }
+          }
+        }
+      }
+    },
+    "/services/SimpleObjectMenu/actions/create/invoke" : {
+      "post" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of SimpleObjectMenu#create",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "object",
+            "properties" : {
+              "name" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "SimpleObjectMenu#create , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "$ref" : "#/definitions/simple.SimpleObjectRepr"
+            }
+          }
+        }
+      }
+    },
+    "/services/SimpleObjectMenu/actions/findByName/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of SimpleObjectMenu#findByName",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "query",
+          "description" : "RO Spec v1.0, section 2.9.1",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "x-isis-querystring",
+          "in" : "query",
+          "description" : "RO Spec v1.0, section 2.10: all (formal) arguments as base64 encoded string",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "SimpleObjectMenu#findByName , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.SimpleObject",
+              "items" : {
+                "$ref" : "#/definitions/simple.SimpleObjectRepr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/SimpleObjectMenu/actions/listAll/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of SimpleObjectMenu#listAll",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "SimpleObjectMenu#listAll , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.SimpleObject",
+              "items" : {
+                "$ref" : "#/definitions/simple.SimpleObjectRepr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user" : {
+      "get" : {
+        "tags" : [ "> restful objects supporting resources" ],
+        "description" : "RO Spec v1.0, section 6.1",
+        "produces" : [ "application/json", "application/json;profile=urn:org.restfulobjects:repr-types/user" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulObjectsSupportingUserRepr"
+            },
+            "headers" : {
+              "Cache-Control" : {
+                "type" : "integer",
+                "format" : "int32",
+                "default" : 3600
+              }
+            }
+          }
+        }
+      }
+    },
+    "/version" : {
+      "get" : {
+        "tags" : [ "> restful objects supporting resources" ],
+        "description" : "RO Spec v1.0, section 8.1",
+        "produces" : [ "application/json", "application/json;profile=urn:org.restfulobjects:repr-types/RestfulObjectsSupportingServicesRepr" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "object"
+            },
+            "headers" : {
+              "Cache-Control" : {
+                "type" : "integer",
+                "format" : "int32",
+                "description" : "RO Spec v1.0, section 2.13",
+                "default" : 86400
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "simple.SimpleObjectRepr" : {
+      "type" : "object",
+      "properties" : {
+        "datanucleusIdLong" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "datanucleusVersionLong" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "datanucleusVersionTimestamp" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "notes" : {
+          "type" : "string"
+        }
+      },
+      "description" : "simple.SimpleObject (domainapp.dom.simple.SimpleObject)"
+    },
+    "LinkRepr" : {
+      "type" : "object",
+      "required" : [ "href", "method", "rel" ],
+      "properties" : {
+        "rel" : {
+          "type" : "string",
+          "description" : "the relationship of the resource to this referencing resource"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "the hyperlink reference (URL) of the resource"
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "title to render"
+        },
+        "method" : {
+          "type" : "string",
+          "description" : "HTTP verb to access",
+          "enum" : [ "GET", "POST", "PUT", "DELETE" ],
+          "default" : "GET"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "Content-Type recognized by the resource (for HTTP Accept header)"
+        },
+        "arguments" : {
+          "type" : "object",
+          "description" : "Any arguments, to send as query strings or in body"
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "the representation of the link if followed"
+        }
+      }
+    },
+    "HrefRepr" : {
+      "type" : "object",
+      "required" : [ "href" ],
+      "properties" : {
+        "href" : {
+          "type" : "string",
+          "description" : "the hyperlink reference (URL) of the resource"
+        }
+      },
+      "description" : "Abbreviated version of the Link resource, used primarily to reference non-value objects"
+    },
+    "domainapp.app.services.homepage.HomePageViewModelRepr" : {
+      "type" : "object",
+      "properties" : {
+        "objects" : {
+          "type" : "array",
+          "description" : "List of simple.SimpleObject",
+          "items" : {
+            "$ref" : "#/definitions/simple.SimpleObjectRepr"
+          }
+        }
+      },
+      "description" : "domainapp.app.services.homepage.HomePageViewModel (domainapp.app.services.homepage.HomePageViewModel)"
+    },
+    "RestfulObjectsSupportingHomePageRepr" : {
+      "type" : "object",
+      "required" : [ "extensions", "links" ],
+      "properties" : {
+        "links" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LinkRepr"
+          }
+        },
+        "extensions" : {
+          "type" : "object"
+        }
+      },
+      "description" : "RO Spec v1.0, section 5.2"
+    },
+    "ConfigurationServiceMenuRepr" : {
+      "type" : "object",
+      "required" : [ "extensions", "links" ],
+      "properties" : {
+        "links" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LinkRepr"
+          }
+        },
+        "extensions" : {
+          "type" : "object"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "serviceId" : {
+          "type" : "string",
+          "default" : "ConfigurationServiceMenu"
+        },
+        "members" : {
+          "type" : "object"
+        }
+      },
+      "description" : "RO Spec v1.0, section 15.1.2: representation of ConfigurationServiceMenu"
+    },
+    "RestfulObjectsSupportingUserRepr" : {
+      "type" : "object",
+      "required" : [ "extensions", "links", "roles", "userName" ],
+      "properties" : {
+        "links" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LinkRepr"
+          }
+        },
+        "extensions" : {
+          "type" : "object"
+        },
+        "userName" : {
+          "type" : "string"
+        },
+        "roles" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "description" : "RO Spec v1.0, section 6.2"
+    },
+    "org.apache.isis.applib.services.config.ConfigurationPropertyRepr" : {
+      "type" : "object",
+      "properties" : {
+        "key" : {
+          "type" : "string"
+        },
+        "value" : {
+          "type" : "string"
+        }
+      },
+      "description" : "org.apache.isis.applib.services.config.ConfigurationProperty (org.apache.isis.applib.services.config.ConfigurationProperty)"
+    },
+    "SimpleObjectMenuRepr" : {
+      "type" : "object",
+      "required" : [ "extensions", "links" ],
+      "properties" : {
+        "links" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LinkRepr"
+          }
+        },
+        "extensions" : {
+          "type" : "object"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "serviceId" : {
+          "type" : "string",
+          "default" : "SimpleObjectMenu"
+        },
+        "members" : {
+          "type" : "object"
+        }
+      },
+      "description" : "RO Spec v1.0, section 15.1.2: representation of SimpleObjectMenu"
+    },
+    "RestfulObjectsSupportingServicesRepr" : {
+      "type" : "object",
+      "required" : [ "extensions", "links" ],
+      "properties" : {
+        "links" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LinkRepr"
+          }
+        },
+        "extensions" : {
+          "type" : "object"
+        },
+        "specVersion" : {
+          "type" : "string"
+        },
+        "implVersion" : {
+          "type" : "string"
+        },
+        "optionalCapabilities" : {
+          "type" : "object",
+          "properties" : {
+            "blobsClobs" : {
+              "type" : "string"
+            },
+            "deleteObjects" : {
+              "type" : "string"
+            },
+            "domainModel" : {
+              "type" : "string"
+            },
+            "protoPersistentObjects" : {
+              "type" : "string"
+            },
+            "validateOnly" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "description" : "RO Spec v1.0, section 8.2"
+    }
+  }
+}
