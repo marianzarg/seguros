@@ -1,5 +1,5 @@
-domainapp/fixture/DomainAppFixtureScriptsSpecificationProvider.class
-domainapp/fixture/dom/simple/SimpleObjectsTearDown.class
-domainapp/fixture/DomainAppFixtureModule.class
-domainapp/fixture/scenarios/RecreateSimpleObjects.class
-domainapp/fixture/dom/simple/SimpleObjectCreate.class
+domainapp\fixture\DomainAppFixtureScriptsSpecificationProvider.class
+domainapp\fixture\DomainAppFixtureModule.class
+domainapp\fixture\scenarios\RecreateSimpleObjects.class
+domainapp\fixture\dom\simple\SimpleObjectCreate.class
+domainapp\fixture\dom\simple\SimpleObjectsTearDown.class
