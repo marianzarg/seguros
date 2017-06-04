@@ -1,8 +1,8 @@
-C:\workspace\seguros\integtests\src\test\java\domainapp\integtests\tests\modules\simple\SimpleObjectMenu_IntegTest.java
-C:\workspace\seguros\integtests\src\test\java\domainapp\integtests\tests\DomainAppIntegTest.java
-C:\workspace\seguros\integtests\src\test\java\domainapp\integtests\specglue\modules\simple\SimpleObjectGlue.java
-C:\workspace\seguros\integtests\src\test\java\domainapp\integtests\specglue\BootstrappingGlue.java
-C:\workspace\seguros\integtests\src\test\java\domainapp\integtests\bootstrap\DomainAppSystemInitializer.java
-C:\workspace\seguros\integtests\src\test\java\domainapp\integtests\specglue\CatalogOfFixturesGlue.java
-C:\workspace\seguros\integtests\src\test\java\domainapp\integtests\tests\modules\simple\SimpleObject_IntegTest.java
-C:\workspace\seguros\integtests\src\test\java\domainapp\integtests\specs\RunSpecs.java
+/home/nachvirtual/workspace/seguros/integtests/src/test/java/domainapp/integtests/specs/RunSpecs.java
+/home/nachvirtual/workspace/seguros/integtests/src/test/java/domainapp/integtests/specglue/BootstrappingGlue.java
+/home/nachvirtual/workspace/seguros/integtests/src/test/java/domainapp/integtests/bootstrap/DomainAppSystemInitializer.java
+/home/nachvirtual/workspace/seguros/integtests/src/test/java/domainapp/integtests/specglue/CatalogOfFixturesGlue.java
+/home/nachvirtual/workspace/seguros/integtests/src/test/java/domainapp/integtests/specglue/modules/simple/SimpleObjectGlue.java
+/home/nachvirtual/workspace/seguros/integtests/src/test/java/domainapp/integtests/tests/DomainAppIntegTest.java
+/home/nachvirtual/workspace/seguros/integtests/src/test/java/domainapp/integtests/tests/modules/simple/SimpleObjectMenu_IntegTest.java
+/home/nachvirtual/workspace/seguros/integtests/src/test/java/domainapp/integtests/tests/modules/simple/SimpleObject_IntegTest.java

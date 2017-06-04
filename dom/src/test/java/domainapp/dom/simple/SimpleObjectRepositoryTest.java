@@ -78,7 +78,7 @@ public class SimpleObjectRepositoryTest {
             });
 
             // when
-            final SimpleObject obj = simpleObjectRepository.create(someName);
+            final SimpleObject obj = simpleObjectRepository.crear(someName);
 
             // then
             assertThat(obj).isNotNull();
@@ -116,7 +116,7 @@ public class SimpleObjectRepositoryTest {
             });
 
             // when
-            final List<SimpleObject> list = simpleObjectRepository.listAll();
+            final List<SimpleObject> list = simpleObjectRepository.listar();
 
             // then
             assertThat(list).isEqualTo(all);

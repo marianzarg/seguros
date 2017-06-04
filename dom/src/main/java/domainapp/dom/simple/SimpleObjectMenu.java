@@ -36,7 +36,7 @@ import org.apache.isis.applib.services.eventbus.ActionDomainEvent;
         repositoryFor = SimpleObject.class
 )
 @DomainServiceLayout(
-        named = "Simple Objects",
+        named = "Marcas",
         menuOrder = "10"
 )
 public class SimpleObjectMenu {
@@ -45,29 +45,29 @@ public class SimpleObjectMenu {
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     @MemberOrder(sequence = "1")
-    public List<SimpleObject> listAll() {
-        return simpleObjectRepository.listAll();
+    public List<SimpleObject> listar() {
+        return simpleObjectRepository.listar();
     }
 
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     @MemberOrder(sequence = "2")
-    public List<SimpleObject> findByName(
+    public List<SimpleObject> buscarPorNombre(
             @ParameterLayout(named="Name")
             final String name
     ) {
-        return simpleObjectRepository.findByName(name);
+        return simpleObjectRepository.buscarPorNombre(name);
     }
 
 
     public static class CreateDomainEvent extends ActionDomainEvent<SimpleObjectMenu> {}
     @Action(domainEvent = CreateDomainEvent.class)
     @MemberOrder(sequence = "3")
-    public SimpleObject create(
+    public SimpleObject crear(
             @ParameterLayout(named="Name")
             final String name) {
-        return simpleObjectRepository.create(name);
+        return simpleObjectRepository.crear(name);
     }
 
 

@@ -32,11 +32,11 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 )
 public class SimpleObjectRepository {
 
-    public List<SimpleObject> listAll() {
+    public List<SimpleObject> listar() {
         return repositoryService.allInstances(SimpleObject.class);
     }
 
-    public List<SimpleObject> findByName(final String name) {
+    public List<SimpleObject> buscarPorNombre(final String name) {
         return repositoryService.allMatches(
                 new QueryDefault<>(
                         SimpleObject.class,
@@ -44,7 +44,7 @@ public class SimpleObjectRepository {
                         "name", name));
     }
 
-    public SimpleObject create(final String name) {
+    public SimpleObject crear(final String name) {
         final SimpleObject object = new SimpleObject(name);
         serviceRegistry.injectServicesInto(object);
         repositoryService.persist(object);

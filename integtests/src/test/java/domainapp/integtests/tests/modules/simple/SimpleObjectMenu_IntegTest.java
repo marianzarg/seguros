@@ -61,7 +61,7 @@ public class SimpleObjectMenu_IntegTest extends DomainAppIntegTest {
             transactionService.nextTransaction();
 
             // when
-            final List<SimpleObject> all = wrap(menu).listAll();
+            final List<SimpleObject> all = wrap(menu).listar();
 
             // then
             assertThat(all).hasSize(fs.getSimpleObjects().size());
@@ -79,7 +79,7 @@ public class SimpleObjectMenu_IntegTest extends DomainAppIntegTest {
             transactionService.nextTransaction();
 
             // when
-            final List<SimpleObject> all = wrap(menu).listAll();
+            final List<SimpleObject> all = wrap(menu).listar();
 
             // then
             assertThat(all).hasSize(0);
@@ -97,10 +97,10 @@ public class SimpleObjectMenu_IntegTest extends DomainAppIntegTest {
             transactionService.nextTransaction();
 
             // when
-            wrap(menu).create("Faz");
+            wrap(menu).crear("Faz");
 
             // then
-            final List<SimpleObject> all = wrap(menu).listAll();
+            final List<SimpleObject> all = wrap(menu).listar();
             assertThat(all).hasSize(1);
         }
 
@@ -111,14 +111,14 @@ public class SimpleObjectMenu_IntegTest extends DomainAppIntegTest {
             FixtureScript fs = new SimpleObjectsTearDown();
             fixtureScripts.runFixtureScript(fs, null);
             transactionService.nextTransaction();
-            wrap(menu).create("Faz");
+            wrap(menu).crear("Faz");
             transactionService.nextTransaction();
 
             // then
             expectedExceptions.expectCause(causalChainContains(SQLIntegrityConstraintViolationException.class));
 
             // when
-            wrap(menu).create("Faz");
+            wrap(menu).crear("Faz");
             transactionService.nextTransaction();
         }
 

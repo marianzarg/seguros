@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: domainapp.integtests.specs.RunSpecs
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.744 sec - in domainapp.integtests.specs.RunSpecs
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.744 sec - in domainapp.integtests.specs.RunSpecs

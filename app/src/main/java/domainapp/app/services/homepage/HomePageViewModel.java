@@ -38,7 +38,7 @@ public class HomePageViewModel {
     //region > object (collection)
     @org.apache.isis.applib.annotation.HomePage
     public List<SimpleObject> getObjects() {
-        return simpleObjectRepository.listAll();
+        return simpleObjectRepository.listar();
     }
     //endregion
 
