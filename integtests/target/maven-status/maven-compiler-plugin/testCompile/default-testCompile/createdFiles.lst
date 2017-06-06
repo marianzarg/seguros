@@ -8,8 +8,8 @@ domainapp/integtests/specglue/CatalogOfFixturesGlue.class
 domainapp/integtests/tests/DomainAppIntegTest.class
 domainapp/integtests/tests/modules/simple/SimpleObject_IntegTest$DataNucleusVersionTimestamp.class
 domainapp/integtests/tests/modules/simple/SimpleObjectMenu_IntegTest$Create$1.class
-domainapp/integtests/tests/modules/simple/SimpleObject_IntegTest$Name.class
 domainapp/integtests/bootstrap/DomainAppSystemInitializer.class
+domainapp/integtests/tests/modules/simple/SimpleObject_IntegTest$Name.class
 domainapp/integtests/tests/modules/simple/SimpleObject_IntegTest.class
 domainapp/integtests/tests/modules/simple/SimpleObjectMenu_IntegTest$Create.class
 domainapp/integtests/specglue/modules/simple/SimpleObjectGlue.class
