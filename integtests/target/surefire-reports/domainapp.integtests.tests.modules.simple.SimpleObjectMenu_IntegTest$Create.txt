@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: domainapp.integtests.tests.modules.simple.SimpleObjectMenu_IntegTest$Create
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec - in domainapp.integtests.tests.modules.simple.SimpleObjectMenu_IntegTest$Create

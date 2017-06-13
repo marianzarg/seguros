@@ -97,6 +97,95 @@
         }
       }
     },
+    "/objects/simple.Clientes/{objectId}" : {
+      "get" : {
+        "tags" : [ "simple" ],
+        "description" : "RO Spec v1.0, section 14.1",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/object" ],
+        "parameters" : [ {
+          "name" : "objectId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "simple.Clientes , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "$ref" : "#/definitions/simple.ClientesRepr"
+            }
+          }
+        }
+      }
+    },
+    "/objects/simple.Clientes/{objectId}/actions/delete/invoke" : {
+      "post" : {
+        "tags" : [ "simple" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of simple.Clientes#delete",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ {
+          "name" : "objectId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "object"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "simple.Clientes#delete",
+            "schema" : {
+              "type" : "object"
+            }
+          }
+        }
+      }
+    },
+    "/objects/simple.Clientes/{objectId}/actions/updateName/invoke" : {
+      "put" : {
+        "tags" : [ "simple" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of simple.Clientes#updateName",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ {
+          "name" : "objectId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "object",
+            "properties" : {
+              "nombre" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "object"
+                  }
+                }
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "simple.Clientes#updateName",
+            "schema" : {
+              "$ref" : "#/definitions/simple.ClientesRepr"
+            }
+          }
+        }
+      }
+    },
     "/objects/simple.SimpleObject/{objectId}" : {
       "get" : {
         "tags" : [ "simple" ],
@@ -203,6 +292,156 @@
                 "type" : "integer",
                 "format" : "int32",
                 "default" : 3600
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/ClientesMenu" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 15.1",
+        "produces" : [ "application/json", "application/json;profile=urn:org.restfulobjects:repr-types/object" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/ClientesMenuRepr"
+            }
+          }
+        }
+      }
+    },
+    "/services/ClientesMenu/actions/buscarPorNombre/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of ClientesMenu#buscarPorNombre",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ {
+          "name" : "nombre",
+          "in" : "query",
+          "description" : "RO Spec v1.0, section 2.9.1",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "x-isis-querystring",
+          "in" : "query",
+          "description" : "RO Spec v1.0, section 2.10: all (formal) arguments as base64 encoded string",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ClientesMenu#buscarPorNombre , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.Clientes",
+              "items" : {
+                "$ref" : "#/definitions/simple.ClientesRepr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/ClientesMenu/actions/crear/invoke" : {
+      "post" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of ClientesMenu#crear",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "object",
+            "properties" : {
+              "nombre" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "apellido" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "dni" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "direccion" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "telefono" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "mail" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "cuitcuil" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ClientesMenu#crear , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "$ref" : "#/definitions/simple.ClientesRepr"
+            }
+          }
+        }
+      }
+    },
+    "/services/ClientesMenu/actions/listar/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of ClientesMenu#listar",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "ClientesMenu#listar , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.Clientes",
+              "items" : {
+                "$ref" : "#/definitions/simple.ClientesRepr"
               }
             }
           }
@@ -467,6 +706,46 @@
       },
       "description" : "Abbreviated version of the Link resource, used primarily to reference non-value objects"
     },
+    "simple.ClientesRepr" : {
+      "type" : "object",
+      "properties" : {
+        "datanucleusIdLong" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "datanucleusVersionLong" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "datanucleusVersionTimestamp" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "apellido" : {
+          "type" : "string"
+        },
+        "cuitcuil" : {
+          "type" : "string"
+        },
+        "direccion" : {
+          "type" : "string"
+        },
+        "dni" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "mail" : {
+          "type" : "string"
+        },
+        "nombre" : {
+          "type" : "string"
+        },
+        "telefono" : {
+          "type" : "string"
+        }
+      },
+      "description" : "simple.Clientes (domainapp.dom.cliente.Clientes)"
+    },
     "domainapp.app.services.homepage.HomePageViewModelRepr" : {
       "type" : "object",
       "properties" : {
@@ -521,6 +800,32 @@
         }
       },
       "description" : "RO Spec v1.0, section 15.1.2: representation of ConfigurationServiceMenu"
+    },
+    "ClientesMenuRepr" : {
+      "type" : "object",
+      "required" : [ "extensions", "links" ],
+      "properties" : {
+        "links" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LinkRepr"
+          }
+        },
+        "extensions" : {
+          "type" : "object"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "serviceId" : {
+          "type" : "string",
+          "default" : "ClientesMenu"
+        },
+        "members" : {
+          "type" : "object"
+        }
+      },
+      "description" : "RO Spec v1.0, section 15.1.2: representation of ClientesMenu"
     },
     "RestfulObjectsSupportingUserRepr" : {
       "type" : "object",
