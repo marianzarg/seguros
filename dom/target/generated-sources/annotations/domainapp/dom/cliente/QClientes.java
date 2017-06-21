@@ -35,6 +35,9 @@ public class QClientes extends PersistableExpressionImpl<Clientes> implements Pe
     public final StringExpression telefono;
     public final StringExpression mail;
     public final StringExpression cuitcuil;
+    public final DateTimeExpression fechaNacimiento;
+    public final BooleanExpression notificacionCumpleanios;
+    public final BooleanExpression activo;
     public final ObjectExpression<org.apache.isis.applib.services.repository.RepositoryService> repositoryService;
     public final ObjectExpression<org.apache.isis.applib.services.title.TitleService> titleService;
     public final ObjectExpression<org.apache.isis.applib.services.message.MessageService> messageService;
@@ -50,6 +53,9 @@ public class QClientes extends PersistableExpressionImpl<Clientes> implements Pe
         this.telefono = new StringExpressionImpl(this, "telefono");
         this.mail = new StringExpressionImpl(this, "mail");
         this.cuitcuil = new StringExpressionImpl(this, "cuitcuil");
+        this.fechaNacimiento = new DateTimeExpressionImpl(this, "fechaNacimiento");
+        this.notificacionCumpleanios = new BooleanExpressionImpl(this, "notificacionCumpleanios");
+        this.activo = new BooleanExpressionImpl(this, "activo");
         this.repositoryService = new ObjectExpressionImpl<org.apache.isis.applib.services.repository.RepositoryService>(this, "repositoryService");
         this.titleService = new ObjectExpressionImpl<org.apache.isis.applib.services.title.TitleService>(this, "titleService");
         this.messageService = new ObjectExpressionImpl<org.apache.isis.applib.services.message.MessageService>(this, "messageService");
@@ -66,6 +72,9 @@ public class QClientes extends PersistableExpressionImpl<Clientes> implements Pe
         this.telefono = new StringExpressionImpl(this, "telefono");
         this.mail = new StringExpressionImpl(this, "mail");
         this.cuitcuil = new StringExpressionImpl(this, "cuitcuil");
+        this.fechaNacimiento = new DateTimeExpressionImpl(this, "fechaNacimiento");
+        this.notificacionCumpleanios = new BooleanExpressionImpl(this, "notificacionCumpleanios");
+        this.activo = new BooleanExpressionImpl(this, "activo");
         this.repositoryService = new ObjectExpressionImpl<org.apache.isis.applib.services.repository.RepositoryService>(this, "repositoryService");
         this.titleService = new ObjectExpressionImpl<org.apache.isis.applib.services.title.TitleService>(this, "titleService");
         this.messageService = new ObjectExpressionImpl<org.apache.isis.applib.services.message.MessageService>(this, "messageService");

@@ -18,7 +18,9 @@
  */
 package domainapp.dom.cliente;
 
-import java.sql.Date;
+
+
+import java.util.Date;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
@@ -33,7 +35,6 @@ import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.Publishing;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.eventbus.ActionDomainEvent;
-import org.apache.isis.applib.services.eventbus.PropertyDomainEvent;
 import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
@@ -42,7 +43,8 @@ import org.apache.isis.applib.util.ObjectContracts;
 
 @javax.jdo.annotations.PersistenceCapable(
         identityType=IdentityType.DATASTORE,
-        schema = "simple"
+        schema = "simple",
+        table = "Clientes"
 )
 @javax.jdo.annotations.DatastoreIdentity(
         strategy=javax.jdo.annotations.IdGeneratorStrategy.IDENTITY,
@@ -55,7 +57,7 @@ import org.apache.isis.applib.util.ObjectContracts;
                 name = "buscarPorNombre", language = "JDOQL",
                 value = "SELECT "
                         + "FROM domainapp.dom.simple.Clientes "
-                        + "WHERE name.indexOf(:name) >= 0 ")
+                        + "WHERE nombre.indexOf(:nombre) >= 0 ")
 })
 @DomainObject(
         publishing = Publishing.ENABLED,
@@ -75,7 +77,7 @@ public class Clientes implements Comparable<Clientes> {
     }
     
     public Clientes(String nombre, String apellido, int dni, String direccion, String telefono, String mail,
-			String cuitcuil) {
+			String cuitcuil, Date fechaNacimiento, boolean notificacionCumpleanios) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -84,6 +86,9 @@ public class Clientes implements Comparable<Clientes> {
 		this.telefono = telefono;
 		this.mail = mail;
 		this.cuitcuil = cuitcuil;
+		this.fechaNacimiento = fechaNacimiento;
+		this.notificacionCumpleanios = notificacionCumpleanios;
+		this.activo = true;
 	}
 
 
@@ -116,7 +121,7 @@ public class Clientes implements Comparable<Clientes> {
 		this.apellido = apellido;
 	}
 
-    @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
+    @javax.jdo.annotations.Column(allowsNull = "false")
     private int dni;
     @Property(
     		editing = Editing.DISABLED
@@ -176,42 +181,42 @@ public class Clientes implements Comparable<Clientes> {
 		this.cuitcuil = cuitcuil;
 	}	
 	
-//    @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
-//    private Date fechaNacimiento;
-//    @Property(
-//    		editing = Editing.DISABLED
-//    )
-//    public Date getFechaNacimiento() {
-//		return fechaNacimiento;
-//	}
-//	public void setFechaNacimiento(Date fechaNacimiento) {
-//		this.fechaNacimiento = fechaNacimiento;
-//	}		
+    @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
+    private Date fechaNacimiento;
+    @Property(
+    		editing = Editing.DISABLED
+    )
+    public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}		
 	
-//    @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
-//    private boolean notificacionCumpleanios;
-//    @Property(
-//    		editing = Editing.DISABLED
-//    )
-//    public boolean getNotificacionCumpleanios() {
-//		return notificacionCumpleanios;
-//	}
-//	public void setNotificacionCumpleanios(boolean notificacionCumpleanios) {
-//		this.notificacionCumpleanios = notificacionCumpleanios;
-//	}	
-//	
-//    @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
-//    private boolean activo;
-//    @Property(
-//    		editing = Editing.DISABLED
-//    )
-//    public boolean getActivo() {
-//		return activo;
-//	}
-//	public void setActivo(boolean activo) {
-//		this.activo = activo;
-//	}	
-//	
+    @javax.jdo.annotations.Column(allowsNull = "false")
+    private boolean notificacionCumpleanios;
+    @Property(
+    		editing = Editing.DISABLED
+    )
+    public boolean getNotificacionCumpleanios() {
+		return notificacionCumpleanios;
+	}
+	public void setNotificacionCumpleanios(boolean notificacionCumpleanios) {
+		this.notificacionCumpleanios = notificacionCumpleanios;
+	}	
+	
+    @javax.jdo.annotations.Column(allowsNull = "false")
+    private boolean activo;
+    @Property(
+    		editing = Editing.DISABLED
+    )
+    public boolean getActivo() {
+		return activo;
+	}
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}	
+	
     //endregion
 
 	
@@ -257,7 +262,7 @@ public class Clientes implements Comparable<Clientes> {
     }
     @Override
     public int compareTo(final Clientes other) {
-        return ObjectContracts.compare(this, other, "ombre");
+        return ObjectContracts.compare(this, other, "nombre");
     }
 
     //endregion

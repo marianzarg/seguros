@@ -53,6 +53,12 @@
                                 <c:property id="cuitcuil" namedEscaped="true">
                                     <c:action id="updateCuitcuil"/>
                                 </c:property>
+								<c:property id="fechaNacimiento" namedEscaped="true">
+                                    <c:action id="updatefecheNacimiento"/>
+                                </c:property>
+                                <c:property id="notificacionCumpleanios" namedEscaped="true">
+                                    <c:action id="updatenotificacionCumpleanios"/>
+                                </c:property>
                             </c:fieldSet>
                         </bs3:col>
                     </bs3:row>

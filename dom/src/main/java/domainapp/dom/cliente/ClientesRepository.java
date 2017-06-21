@@ -18,6 +18,7 @@
  */
 package domainapp.dom.cliente;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.isis.applib.annotation.DomainService;
@@ -44,8 +45,8 @@ public class ClientesRepository {
                         "nombre", nombre));
     }
 
-    public Clientes crear(final String nombre, final String apellido, final int dni, final String direccion, final String telefono, final String mail, final String cuitcuil) {
-        final Clientes object = new Clientes(nombre, apellido, dni, direccion, telefono, mail, cuitcuil);
+    public Clientes crear(final String nombre, final String apellido, final int dni, final String direccion, final String telefono, final String mail, final String cuitcuil, final Date fechaNacimiento, final boolean notificacionCumpleanios) {
+        final Clientes object = new Clientes(nombre, apellido, dni, direccion, telefono, mail, cuitcuil, fechaNacimiento, notificacionCumpleanios);
         serviceRegistry.injectServicesInto(object);
         repositoryService.persist(object);
         return object;

@@ -18,6 +18,7 @@
  */
 package domainapp.dom.cliente;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.isis.applib.annotation.Action;
@@ -71,8 +72,10 @@ public class ClientesMenu {
             @ParameterLayout(named="direccion") final String direccion, 
             @ParameterLayout(named="telefono") final String telefono,
     		@ParameterLayout(named="mail") final String mail,
-            @ParameterLayout(named="cuitcuil") final String cuitcuil) {
-        return simpleObjectRepository.crear(nombre, apellido, dni, direccion, telefono, mail, cuitcuil);
+            @ParameterLayout(named="cuitcuil") final String cuitcuil,
+            @ParameterLayout(named="fechaNacimiento") final Date fechaNacimiento, 
+            @ParameterLayout(named="notificacionCumpleanios") final boolean notificacionCumpleanios) {
+        return simpleObjectRepository.crear(nombre, apellido, dni, direccion, telefono, mail, cuitcuil, fechaNacimiento, notificacionCumpleanios);
     }
 
 
