@@ -38,6 +38,9 @@
                                 <c:property id="apellido" namedEscaped="true">
                                     <c:action id="updateApellido"/>
                                 </c:property>
+                                <c:property id="sexo" namedEscaped="true">
+                                 
+                                </c:property>
                                 <c:property id="dni" namedEscaped="true">
                                     <c:action id="updateDNI"/>
                                 </c:property>

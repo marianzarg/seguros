@@ -30,6 +30,7 @@ public class QClientes extends PersistableExpressionImpl<Clientes> implements Pe
     public final NumericExpression<Integer> NAME_LENGTH;
     public final StringExpression nombre;
     public final StringExpression apellido;
+    public final ObjectExpression<domainapp.dom.cliente.Sexo> sexo;
     public final NumericExpression<Integer> dni;
     public final StringExpression direccion;
     public final StringExpression telefono;
@@ -48,6 +49,7 @@ public class QClientes extends PersistableExpressionImpl<Clientes> implements Pe
         this.NAME_LENGTH = new NumericExpressionImpl<Integer>(this, "NAME_LENGTH");
         this.nombre = new StringExpressionImpl(this, "nombre");
         this.apellido = new StringExpressionImpl(this, "apellido");
+        this.sexo = new ObjectExpressionImpl<domainapp.dom.cliente.Sexo>(this, "sexo");
         this.dni = new NumericExpressionImpl<Integer>(this, "dni");
         this.direccion = new StringExpressionImpl(this, "direccion");
         this.telefono = new StringExpressionImpl(this, "telefono");
@@ -67,6 +69,7 @@ public class QClientes extends PersistableExpressionImpl<Clientes> implements Pe
         this.NAME_LENGTH = new NumericExpressionImpl<Integer>(this, "NAME_LENGTH");
         this.nombre = new StringExpressionImpl(this, "nombre");
         this.apellido = new StringExpressionImpl(this, "apellido");
+        this.sexo = new ObjectExpressionImpl<domainapp.dom.cliente.Sexo>(this, "sexo");
         this.dni = new NumericExpressionImpl<Integer>(this, "dni");
         this.direccion = new StringExpressionImpl(this, "direccion");
         this.telefono = new StringExpressionImpl(this, "telefono");

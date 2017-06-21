@@ -76,11 +76,12 @@ public class Clientes implements Comparable<Clientes> {
         setNombre(nombre);
     }
     
-    public Clientes(String nombre, String apellido, int dni, String direccion, String telefono, String mail,
+    public Clientes(String nombre, String apellido, Sexo sexo, int dni, String direccion, String telefono, String mail,
 			String cuitcuil, Date fechaNacimiento, boolean notificacionCumpleanios) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
+		this.sexo = sexo;
 		this.dni = dni;
 		this.direccion = direccion;
 		this.telefono = telefono;
@@ -99,9 +100,7 @@ public class Clientes implements Comparable<Clientes> {
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
     private String nombre;
-    @Property(
-            editing = Editing.DISABLED
-    )
+    
     public String getNombre() {
         return nombre;
     }
@@ -111,21 +110,27 @@ public class Clientes implements Comparable<Clientes> {
     
     @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
     private String apellido;
-    @Property(
-    		editing = Editing.DISABLED
-    )
     public String getApellido() {
 		return apellido;
 	}
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	 @javax.jdo.annotations.Column(allowsNull = "false")
+	private Sexo sexo;
 
-    @javax.jdo.annotations.Column(allowsNull = "false")
+    public Sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+
+
+	@javax.jdo.annotations.Column(allowsNull = "false")
     private int dni;
-    @Property(
-    		editing = Editing.DISABLED
-    )
+
     public int getDni() {
 		return dni;
 	}
@@ -135,9 +140,7 @@ public class Clientes implements Comparable<Clientes> {
 	
     @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
     private String direccion;
-    @Property(
-    		editing = Editing.DISABLED
-    )
+
     public String getDireccion() {
 		return direccion;
 	}
@@ -147,9 +150,7 @@ public class Clientes implements Comparable<Clientes> {
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
     private String telefono;
-    @Property(
-    		editing = Editing.DISABLED
-    )
+
     public String getTelefono() {
 		return telefono;
 	}
@@ -159,9 +160,7 @@ public class Clientes implements Comparable<Clientes> {
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
     private String mail;
-    @Property(
-    		editing = Editing.DISABLED
-    )
+
     public String getMail() {
 		return mail;
 	}
@@ -171,9 +170,7 @@ public class Clientes implements Comparable<Clientes> {
 
     @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
     private String cuitcuil;
-    @Property(
-    		editing = Editing.DISABLED
-    )
+
     public String getCuitcuil() {
 		return cuitcuil;
 	}
@@ -183,9 +180,7 @@ public class Clientes implements Comparable<Clientes> {
 	
     @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
     private Date fechaNacimiento;
-    @Property(
-    		editing = Editing.DISABLED
-    )
+
     public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
@@ -195,9 +190,7 @@ public class Clientes implements Comparable<Clientes> {
 	
     @javax.jdo.annotations.Column(allowsNull = "false")
     private boolean notificacionCumpleanios;
-    @Property(
-    		editing = Editing.DISABLED
-    )
+
     public boolean getNotificacionCumpleanios() {
 		return notificacionCumpleanios;
 	}
@@ -207,9 +200,7 @@ public class Clientes implements Comparable<Clientes> {
 	
     @javax.jdo.annotations.Column(allowsNull = "false")
     private boolean activo;
-    @Property(
-    		editing = Editing.DISABLED
-    )
+
     public boolean getActivo() {
 		return activo;
 	}
@@ -221,23 +212,23 @@ public class Clientes implements Comparable<Clientes> {
 
 	
 	//region > updateName (action)
-    public static class UpdateNameDomainEvent extends ActionDomainEvent<Clientes> {}
-    @Action(
-            command = CommandReification.ENABLED,
-            publishing = Publishing.ENABLED,
-            semantics = SemanticsOf.IDEMPOTENT,
-            domainEvent = UpdateNameDomainEvent.class
-    )
-    public Clientes updateName(@ParameterLayout(named="Nombre") final String nombre) {
-        setNombre(nombre);
-        return this;
-    }
-    public String default0UpdateName() {
-        return getNombre();
-    }
-    public TranslatableString validate0UpdateName(final String name) {
-        return name != null && name.contains("!")? TranslatableString.tr("Exclamation mark is not allowed"): null;
-    }
+//    public static class UpdateNameDomainEvent extends ActionDomainEvent<Clientes> {}
+//    @Action(
+//            command = CommandReification.ENABLED,
+//            publishing = Publishing.ENABLED,
+//            semantics = SemanticsOf.IDEMPOTENT,
+//            domainEvent = UpdateNameDomainEvent.class
+//    )
+//    public Clientes updateName(@ParameterLayout(named="Nombre") final String nombre) {
+//        setNombre(nombre);
+//        return this;
+//    }
+//    public String default0UpdateName() {
+//        return getNombre();
+//    }
+//    public TranslatableString validate0UpdateName(final String name) {
+//        return name != null && name.contains("!")? TranslatableString.tr("Exclamation mark is not allowed"): null;
+//    }
 
     //endregion
     

@@ -66,16 +66,17 @@ public class ClientesMenu {
     @Action(domainEvent = CreateDomainEvent.class)
     @MemberOrder(sequence = "3")
     public Clientes crear(
-            @ParameterLayout(named="nombre") final String nombre, 
-            @ParameterLayout(named="apellido") final String apellido,
-    		@ParameterLayout(named="dni") final int dni,
-            @ParameterLayout(named="direccion") final String direccion, 
-            @ParameterLayout(named="telefono") final String telefono,
-    		@ParameterLayout(named="mail") final String mail,
-            @ParameterLayout(named="cuitcuil") final String cuitcuil,
-            @ParameterLayout(named="fechaNacimiento") final Date fechaNacimiento, 
-            @ParameterLayout(named="notificacionCumpleanios") final boolean notificacionCumpleanios) {
-        return simpleObjectRepository.crear(nombre, apellido, dni, direccion, telefono, mail, cuitcuil, fechaNacimiento, notificacionCumpleanios);
+            @ParameterLayout(named="Nombre") final String nombre, 
+            @ParameterLayout(named="Apellido") final String apellido,
+            @ParameterLayout(named="Sexo") final Sexo sexo,
+    		@ParameterLayout(named="DNI") final int dni,
+            @ParameterLayout(named="Dirección") final String direccion, 
+            @ParameterLayout(named="Teléfono") final String telefono,
+    		@ParameterLayout(named="E-Mail") final String mail,
+            @ParameterLayout(named="CUIT/CUIL") final String cuitcuil,
+            @ParameterLayout(named="Fecha de Nacimiento") final Date fechaNacimiento, 
+            @ParameterLayout(named="Notif. Cumpleaños") final boolean notificacionCumpleanios) {
+        return simpleObjectRepository.crear(nombre, apellido, sexo, dni, direccion, telefono, mail, cuitcuil, fechaNacimiento, notificacionCumpleanios);
     }
 
 

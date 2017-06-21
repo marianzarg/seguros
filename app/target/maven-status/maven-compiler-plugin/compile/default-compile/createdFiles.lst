@@ -1,7 +1,7 @@
-domainapp/app/DomainAppAppManifestWithFixtures.class
-domainapp/app/services/homepage/HomePageViewModel.class
-domainapp/app/DomainAppAppManifest.class
-domainapp/app/services/homepage/HomePageService.class
-domainapp/app/DomainAppAppManifestWithFixturesBypassSecurity.class
-domainapp/app/DomainAppAppModule.class
-domainapp/app/DomainAppAppManifestBypassSecurity.class
+domainapp\app\services\homepage\HomePageService.class
+domainapp\app\services\homepage\HomePageViewModel.class
+domainapp\app\DomainAppAppManifest.class
+domainapp\app\DomainAppAppManifestWithFixturesBypassSecurity.class
+domainapp\app\DomainAppAppManifestBypassSecurity.class
+domainapp\app\DomainAppAppModule.class
+domainapp\app\DomainAppAppManifestWithFixtures.class

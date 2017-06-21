@@ -147,45 +147,6 @@
         }
       }
     },
-    "/objects/simple.Clientes/{objectId}/actions/updateName/invoke" : {
-      "put" : {
-        "tags" : [ "simple" ],
-        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of simple.Clientes#updateName",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
-        "parameters" : [ {
-          "name" : "objectId",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "required" : false,
-          "schema" : {
-            "type" : "object",
-            "properties" : {
-              "nombre" : {
-                "type" : "object",
-                "properties" : {
-                  "value" : {
-                    "type" : "object"
-                  }
-                }
-              }
-            }
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "simple.Clientes#updateName",
-            "schema" : {
-              "$ref" : "#/definitions/simple.ClientesRepr"
-            }
-          }
-        }
-      }
-    },
     "/objects/simple.SimpleObject/{objectId}" : {
       "get" : {
         "tags" : [ "simple" ],
@@ -375,7 +336,7 @@
                   }
                 }
               },
-              "dni" : {
+              "sexo" : {
                 "type" : "object",
                 "properties" : {
                   "value" : {
@@ -383,7 +344,7 @@
                   }
                 }
               },
-              "direccion" : {
+              "dNI" : {
                 "type" : "object",
                 "properties" : {
                   "value" : {
@@ -391,7 +352,7 @@
                   }
                 }
               },
-              "telefono" : {
+              "dirección" : {
                 "type" : "object",
                 "properties" : {
                   "value" : {
@@ -399,7 +360,7 @@
                   }
                 }
               },
-              "mail" : {
+              "teléfono" : {
                 "type" : "object",
                 "properties" : {
                   "value" : {
@@ -407,7 +368,7 @@
                   }
                 }
               },
-              "cuitcuil" : {
+              "e-Mail" : {
                 "type" : "object",
                 "properties" : {
                   "value" : {
@@ -415,7 +376,7 @@
                   }
                 }
               },
-              "fechaNacimiento" : {
+              "cUIT/CUIL" : {
                 "type" : "object",
                 "properties" : {
                   "value" : {
@@ -423,7 +384,15 @@
                   }
                 }
               },
-              "notificacionCumpleanios" : {
+              "fechaDeNacimiento" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "notif.Cumpleaños" : {
                 "type" : "object",
                 "properties" : {
                   "value" : {
@@ -694,8 +663,8 @@
         "method" : {
           "type" : "string",
           "description" : "HTTP verb to access",
-          "enum" : [ "GET", "POST", "PUT", "DELETE" ],
-          "default" : "GET"
+          "default" : "GET",
+          "enum" : [ "GET", "POST", "PUT", "DELETE" ]
         },
         "type" : {
           "type" : "string",
@@ -765,6 +734,10 @@
         },
         "notificacionCumpleanios" : {
           "type" : "boolean"
+        },
+        "sexo" : {
+          "type" : "string",
+          "enum" : [ "Masculino", "Femenino" ]
         },
         "telefono" : {
           "type" : "string"
