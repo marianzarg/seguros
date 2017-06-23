@@ -57,7 +57,17 @@ import org.apache.isis.applib.util.ObjectContracts;
                 name = "buscarPorNombre", language = "JDOQL",
                 value = "SELECT "
                         + "FROM domainapp.dom.simple.Clientes "
-                        + "WHERE nombre.indexOf(:nombre) >= 0 ")
+                        + "WHERE nombre.indexOf(:nombre) >= 0 "),
+        @javax.jdo.annotations.Query(
+                name = "listarActivos", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.dom.simple.Clientes "
+                        + "WHERE activo == true "),
+        @javax.jdo.annotations.Query(
+                name = "listarInactivos", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.dom.simple.Clientes "
+                        + "WHERE activo == false ")
 })
 @DomainObject(
         publishing = Publishing.ENABLED,
@@ -238,11 +248,16 @@ public class Clientes implements Comparable<Clientes> {
             domainEvent = DeleteDomainEvent.class,
             semantics = SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE
     )
-    public void delete() {
+    public void borrarCliente() {
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' deleted", title));
-        repositoryService.remove(this);
+        setActivo(false);
+//        repositoryService.remove(this);
     }
+    
+//    public void borrarCliente(){
+//    	setActivo(false);
+//    }
 
     //endregion
 

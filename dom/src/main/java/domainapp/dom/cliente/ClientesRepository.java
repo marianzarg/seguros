@@ -27,6 +27,8 @@ import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.services.registry.ServiceRegistry2;
 import org.apache.isis.applib.services.repository.RepositoryService;
 
+import domainapp.dom.simple.SimpleObject;
+
 @DomainService(
         nature = NatureOfService.DOMAIN,
         repositoryFor = Clientes.class
@@ -44,6 +46,20 @@ public class ClientesRepository {
                         "buscarPorNombre",
                         "nombre", nombre));
     }
+    
+    public List<Clientes> listarActivos(){
+   	 return repositoryService.allMatches(
+                new QueryDefault<>(
+                        Clientes.class,
+                        "listarActivos"));
+   }
+    
+    public List<Clientes> listarInactivos(){
+      	 return repositoryService.allMatches(
+                   new QueryDefault<>(
+                           Clientes.class,
+                           "listarInactivos"));
+      }
 
     public Clientes crear(final String nombre, final String apellido, Sexo sexo, final int dni, final String direccion, final String telefono, final String mail, final String cuitcuil, final Date fechaNacimiento, final boolean notificacionCumpleanios) {
         final Clientes object = new Clientes(nombre, apellido, sexo, dni, direccion, telefono, mail, cuitcuil, fechaNacimiento, notificacionCumpleanios);

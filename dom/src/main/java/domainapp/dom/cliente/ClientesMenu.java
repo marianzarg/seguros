@@ -32,6 +32,8 @@ import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.eventbus.ActionDomainEvent;
 
+import domainapp.dom.simple.SimpleObject;
+
 @DomainService(
         nature = NatureOfService.VIEW_MENU_ONLY,
         repositoryFor = Clientes.class
@@ -49,11 +51,25 @@ public class ClientesMenu {
     public List<Clientes> listar() {
         return simpleObjectRepository.listar();
     }
+    
+    @Action(semantics = SemanticsOf.SAFE)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+    @MemberOrder(sequence = "2")
+    public List<Clientes> listarActivos() {
+        return simpleObjectRepository.listarActivos();
+    }
+    
+    @Action(semantics = SemanticsOf.SAFE)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+    @MemberOrder(sequence = "3")
+    public List<Clientes> listarInactivos() {
+        return simpleObjectRepository.listarInactivos();
+    }
 
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    @MemberOrder(sequence = "2")
+    @MemberOrder(sequence = "4")
     public List<Clientes> buscarPorNombre(
             @ParameterLayout(named="Nombre")
             final String nombre
@@ -64,7 +80,7 @@ public class ClientesMenu {
 
     public static class CreateDomainEvent extends ActionDomainEvent<ClientesMenu> {}
     @Action(domainEvent = CreateDomainEvent.class)
-    @MemberOrder(sequence = "3")
+    @MemberOrder(sequence = "4")
     public Clientes crear(
             @ParameterLayout(named="Nombre") final String nombre, 
             @ParameterLayout(named="Apellido") final String apellido,

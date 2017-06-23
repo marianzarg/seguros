@@ -118,10 +118,10 @@
         }
       }
     },
-    "/objects/simple.Clientes/{objectId}/actions/delete/invoke" : {
+    "/objects/simple.Clientes/{objectId}/actions/borrarCliente/invoke" : {
       "post" : {
         "tags" : [ "simple" ],
-        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of simple.Clientes#delete",
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of simple.Clientes#borrarCliente",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
         "parameters" : [ {
@@ -139,7 +139,7 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "simple.Clientes#delete",
+            "description" : "simple.Clientes#borrarCliente",
             "schema" : {
               "type" : "object"
             }
@@ -422,6 +422,46 @@
         "responses" : {
           "200" : {
             "description" : "ClientesMenu#listar , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.Clientes",
+              "items" : {
+                "$ref" : "#/definitions/simple.ClientesRepr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/ClientesMenu/actions/listarActivos/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of ClientesMenu#listarActivos",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "ClientesMenu#listarActivos , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.Clientes",
+              "items" : {
+                "$ref" : "#/definitions/simple.ClientesRepr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/ClientesMenu/actions/listarInactivos/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of ClientesMenu#listarInactivos",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "ClientesMenu#listarInactivos , if Accept: application/json;profile=urn:org.apache.isis/v1",
             "schema" : {
               "type" : "array",
               "description" : "List of simple.Clientes",
