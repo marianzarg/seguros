@@ -67,8 +67,14 @@ import org.apache.isis.applib.util.ObjectContracts;
                 name = "listarInactivos", language = "JDOQL",
                 value = "SELECT "
                         + "FROM domainapp.dom.simple.Clientes "
-                        + "WHERE activo == false ")
+                        + "WHERE activo == false "),
+        @javax.jdo.annotations.Query(
+                name = "buscarPorDNI", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.dom.simple.Clientes "
+                        + "WHERE dni == :dni"),
 })
+@javax.jdo.annotations.Unique(name="Clientes_cuitcuil_UNQ", members = {"cuitcuil"})
 @DomainObject(
         publishing = Publishing.ENABLED,
         auditing = Auditing.ENABLED

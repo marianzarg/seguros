@@ -49,21 +49,21 @@ public class ClientesMenu {
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     @MemberOrder(sequence = "1")
     public List<Clientes> listar() {
-        return simpleObjectRepository.listar();
+        return clientesRepository.listar();
     }
     
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     @MemberOrder(sequence = "2")
     public List<Clientes> listarActivos() {
-        return simpleObjectRepository.listarActivos();
+        return clientesRepository.listarActivos();
     }
     
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     @MemberOrder(sequence = "3")
     public List<Clientes> listarInactivos() {
-        return simpleObjectRepository.listarInactivos();
+        return clientesRepository.listarInactivos();
     }
 
 
@@ -74,7 +74,17 @@ public class ClientesMenu {
             @ParameterLayout(named="Nombre")
             final String nombre
     ) {
-        return simpleObjectRepository.buscarPorNombre(nombre);
+        return clientesRepository.buscarPorNombre(nombre);
+    }
+    
+    @Action(semantics = SemanticsOf.SAFE)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+    @MemberOrder(sequence = "5")
+    public List<Clientes> buscarPorDNI(
+            @ParameterLayout(named="DNI")
+            final int dni
+    ) {
+        return clientesRepository.buscarPorDNI(dni);
     }
 
 
@@ -92,11 +102,11 @@ public class ClientesMenu {
             @ParameterLayout(named="CUIT/CUIL") final String cuitcuil,
             @ParameterLayout(named="Fecha de Nacimiento") final Date fechaNacimiento, 
             @ParameterLayout(named="Notif. Cumpleaños") final boolean notificacionCumpleanios) {
-        return simpleObjectRepository.crear(nombre, apellido, sexo, dni, direccion, telefono, mail, cuitcuil, fechaNacimiento, notificacionCumpleanios);
+        return clientesRepository.crear(nombre, apellido, sexo, dni, direccion, telefono, mail, cuitcuil, fechaNacimiento, notificacionCumpleanios);
     }
 
 
     @javax.inject.Inject
-    ClientesRepository simpleObjectRepository;
+    ClientesRepository clientesRepository;
 
 }

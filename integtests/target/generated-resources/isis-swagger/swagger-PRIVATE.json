@@ -275,6 +275,38 @@
         }
       }
     },
+    "/services/ClientesMenu/actions/buscarPorDNI/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of ClientesMenu#buscarPorDNI",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ {
+          "name" : "dNI",
+          "in" : "query",
+          "description" : "RO Spec v1.0, section 2.9.1",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "x-isis-querystring",
+          "in" : "query",
+          "description" : "RO Spec v1.0, section 2.10: all (formal) arguments as base64 encoded string",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ClientesMenu#buscarPorDNI , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.Clientes",
+              "items" : {
+                "$ref" : "#/definitions/simple.ClientesRepr"
+              }
+            }
+          }
+        }
+      }
+    },
     "/services/ClientesMenu/actions/buscarPorNombre/invoke" : {
       "get" : {
         "tags" : [ "> services" ],
@@ -703,8 +735,8 @@
         "method" : {
           "type" : "string",
           "description" : "HTTP verb to access",
-          "default" : "GET",
-          "enum" : [ "GET", "POST", "PUT", "DELETE" ]
+          "enum" : [ "GET", "POST", "PUT", "DELETE" ],
+          "default" : "GET"
         },
         "type" : {
           "type" : "string",

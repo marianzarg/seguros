@@ -60,6 +60,14 @@ public class ClientesRepository {
                            Clientes.class,
                            "listarInactivos"));
       }
+    
+    public List<Clientes> buscarPorDNI(final int dni) {
+        return repositoryService.allMatches(
+                new QueryDefault<>(
+                        Clientes.class,
+                        "buscarPorDNI",
+                        "dni", dni));
+    }
 
     public Clientes crear(final String nombre, final String apellido, Sexo sexo, final int dni, final String direccion, final String telefono, final String mail, final String cuitcuil, final Date fechaNacimiento, final boolean notificacionCumpleanios) {
         final Clientes object = new Clientes(nombre, apellido, sexo, dni, direccion, telefono, mail, cuitcuil, fechaNacimiento, notificacionCumpleanios);
