@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /home/leandro/workspace/seguros/integtests/src/test/java/domainapp/integtests/tests/DomainAppIntegTest.java
 /home/leandro/workspace/seguros/integtests/src/test/java/domainapp/integtests/specglue/modules/simple/SimpleObjectGlue.java
 /home/leandro/workspace/seguros/integtests/src/test/java/domainapp/integtests/specglue/BootstrappingGlue.java
@@ -6,3 +7,13 @@
 /home/leandro/workspace/seguros/integtests/src/test/java/domainapp/integtests/specglue/CatalogOfFixturesGlue.java
 /home/leandro/workspace/seguros/integtests/src/test/java/domainapp/integtests/specs/RunSpecs.java
 /home/leandro/workspace/seguros/integtests/src/test/java/domainapp/integtests/bootstrap/DomainAppSystemInitializer.java
+=======
+C:\Users\nacho\workspace\seguros\integtests\src\test\java\domainapp\integtests\specs\RunSpecs.java
+C:\Users\nacho\workspace\seguros\integtests\src\test\java\domainapp\integtests\bootstrap\DomainAppSystemInitializer.java
+C:\Users\nacho\workspace\seguros\integtests\src\test\java\domainapp\integtests\specglue\BootstrappingGlue.java
+C:\Users\nacho\workspace\seguros\integtests\src\test\java\domainapp\integtests\specglue\CatalogOfFixturesGlue.java
+C:\Users\nacho\workspace\seguros\integtests\src\test\java\domainapp\integtests\tests\DomainAppIntegTest.java
+C:\Users\nacho\workspace\seguros\integtests\src\test\java\domainapp\integtests\tests\modules\simple\SimpleObject_IntegTest.java
+C:\Users\nacho\workspace\seguros\integtests\src\test\java\domainapp\integtests\specglue\modules\simple\SimpleObjectGlue.java
+C:\Users\nacho\workspace\seguros\integtests\src\test\java\domainapp\integtests\tests\modules\simple\SimpleObjectMenu_IntegTest.java
+>>>>>>> prueabas

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/cliente/Clientes.java
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/DomainAppDomainModule.java
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/cliente/ClientesMenu.java
@@ -7,3 +8,14 @@
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/DomainAppDomManifest.java
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/cliente/Sexo.java
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/simple/SimpleObjectRepository.java
+=======
+C:\Users\nacho\workspace\seguros\dom\src\main\java\domainapp\dom\cliente\ClientesMenu.java
+C:\Users\nacho\workspace\seguros\dom\src\main\java\domainapp\dom\DomainAppDomManifest.java
+C:\Users\nacho\workspace\seguros\dom\src\main\java\domainapp\dom\simple\SimpleObjectRepository.java
+C:\Users\nacho\workspace\seguros\dom\src\main\java\domainapp\dom\cliente\ClientesRepository.java
+C:\Users\nacho\workspace\seguros\dom\src\main\java\domainapp\dom\cliente\Sexo.java
+C:\Users\nacho\workspace\seguros\dom\src\main\java\domainapp\dom\simple\SimpleObject.java
+C:\Users\nacho\workspace\seguros\dom\src\main\java\domainapp\dom\simple\SimpleObjectMenu.java
+C:\Users\nacho\workspace\seguros\dom\src\main\java\domainapp\dom\DomainAppDomainModule.java
+C:\Users\nacho\workspace\seguros\dom\src\main\java\domainapp\dom\cliente\Clientes.java
+>>>>>>> prueabas
