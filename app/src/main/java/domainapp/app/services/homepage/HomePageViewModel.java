@@ -23,6 +23,8 @@ import java.util.List;
 import org.apache.isis.applib.annotation.ViewModel;
 import org.apache.isis.applib.services.i18n.TranslatableString;
 
+import domainapp.dom.cliente.Clientes;
+import domainapp.dom.cliente.ClientesRepository;
 import domainapp.dom.simple.SimpleObject;
 import domainapp.dom.simple.SimpleObjectRepository;
 
@@ -37,15 +39,15 @@ public class HomePageViewModel {
 
     //region > object (collection)
     @org.apache.isis.applib.annotation.HomePage
-    public List<SimpleObject> getObjects() {
-        return simpleObjectRepository.listar();
+    public List<Clientes> getObjects() {
+        return clienteRepository.listar();
     }
     //endregion
 
     //region > injected services
 
     @javax.inject.Inject
-    SimpleObjectRepository simpleObjectRepository;
+    ClientesRepository clienteRepository;
 
     //endregion
 }
