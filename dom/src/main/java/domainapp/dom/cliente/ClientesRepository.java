@@ -69,8 +69,8 @@ public class ClientesRepository {
                         "dni", dni));
     }
 
-    public Clientes crear(final String nombre, final String apellido, Sexo sexo, final int dni, final String direccion, final String telefono, final String mail, final String cuitcuil, final Date fechaNacimiento, final boolean notificacionCumpleanios) {
-        final Clientes object = new Clientes(nombre, apellido, sexo, dni, direccion, telefono, mail, cuitcuil, fechaNacimiento, notificacionCumpleanios);
+    public Clientes crear(final String nombre, final String apellido, Sexo sexo, final int dni, final String direccion, final String telefono, final String mail, final Date fechaNacimiento, final boolean notificacionCumpleanios) {
+        final Clientes object = new Clientes(nombre, apellido, sexo, dni, direccion, telefono, mail, fechaNacimiento, notificacionCumpleanios);
         serviceRegistry.injectServicesInto(object);
         repositoryService.persist(object);
         return object;

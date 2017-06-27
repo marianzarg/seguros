@@ -28,6 +28,7 @@ import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.Auditing;
 import org.apache.isis.applib.annotation.CommandReification;
+import org.apache.isis.applib.annotation.Disabled;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.Editing;
 import org.apache.isis.applib.annotation.ParameterLayout;
@@ -93,7 +94,7 @@ public class Clientes implements Comparable<Clientes> {
     }
     
     public Clientes(String nombre, String apellido, Sexo sexo, int dni, String direccion, String telefono, String mail,
-			String cuitcuil, Date fechaNacimiento, boolean notificacionCumpleanios) {
+			Date fechaNacimiento, boolean notificacionCumpleanios) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -102,7 +103,7 @@ public class Clientes implements Comparable<Clientes> {
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.mail = mail;
-		this.cuitcuil = cuitcuil;
+		this.cuitcuil = GenerarCuit.generar(sexo, dni);
 		this.fechaNacimiento = fechaNacimiento;
 		this.notificacionCumpleanios = notificacionCumpleanios;
 		this.activo = true;
@@ -184,9 +185,11 @@ public class Clientes implements Comparable<Clientes> {
 		this.mail = mail;
 	}	
 
-    @javax.jdo.annotations.Column(allowsNull = "false", length = NAME_LENGTH)
+    @javax.jdo.annotations.Column(allowsNull = "false")
     private String cuitcuil;
-
+    @Property(
+            editing = Editing.DISABLED
+    )
     public String getCuitcuil() {
 		return cuitcuil;
 	}
@@ -216,7 +219,9 @@ public class Clientes implements Comparable<Clientes> {
 	
     @javax.jdo.annotations.Column(allowsNull = "false")
     private boolean activo;
-
+    @Property(
+            editing = Editing.DISABLED
+    )
     public boolean getActivo() {
 		return activo;
 	}

@@ -7,6 +7,7 @@ domainapp/dom/simple/SimpleObject.class
 domainapp/dom/cliente/QClientes.class
 domainapp/dom/cliente/ClientesMenu$CreateDomainEvent.class
 domainapp/dom/cliente/ClientesMenu.class
+domainapp/dom/cliente/GenerarCuit.class
 domainapp/dom/simple/SimpleObjectMenu.class
 domainapp/dom/cliente/Sexo.class
 domainapp/dom/simple/SimpleObject$DeleteDomainEvent.class

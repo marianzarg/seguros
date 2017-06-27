@@ -94,15 +94,15 @@ public class ClientesMenu {
     public Clientes crear(
             @ParameterLayout(named="Nombre") final String nombre, 
             @ParameterLayout(named="Apellido") final String apellido,
-            @ParameterLayout(named="Sexo") final Sexo sexo,
     		@ParameterLayout(named="DNI") final int dni,
+    		@ParameterLayout(named="Sexo") final Sexo sexo,
             @ParameterLayout(named="Dirección") final String direccion, 
             @ParameterLayout(named="Teléfono") final String telefono,
     		@ParameterLayout(named="E-Mail") final String mail,
-            @ParameterLayout(named="CUIT/CUIL") final String cuitcuil,
+            //@ParameterLayout(named="CUIT/CUIL") final String cuitcuil,
             @ParameterLayout(named="Fecha de Nacimiento") final Date fechaNacimiento, 
             @ParameterLayout(named="Notif. Cumpleaños") final boolean notificacionCumpleanios) {
-        return clientesRepository.crear(nombre, apellido, sexo, dni, direccion, telefono, mail, cuitcuil, fechaNacimiento, notificacionCumpleanios);
+        return clientesRepository.crear(nombre, apellido, sexo, dni, direccion, telefono, mail, fechaNacimiento, notificacionCumpleanios);
     }
 
 

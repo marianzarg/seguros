@@ -67,9 +67,9 @@
             "description" : "domainapp.app.services.homepage.HomePageViewModel#objects , if Accept: application/json;profile=urn:org.apache.isis/v1",
             "schema" : {
               "type" : "array",
-              "description" : "List of simple.SimpleObject",
+              "description" : "List of simple.Clientes",
               "items" : {
-                "$ref" : "#/definitions/simple.SimpleObjectRepr"
+                "$ref" : "#/definitions/simple.ClientesRepr"
               }
             }
           }
@@ -401,14 +401,6 @@
                 }
               },
               "e-Mail" : {
-                "type" : "object",
-                "properties" : {
-                  "value" : {
-                    "type" : "string"
-                  }
-                }
-              },
-              "cUIT/CUIL" : {
                 "type" : "object",
                 "properties" : {
                   "value" : {
@@ -822,9 +814,9 @@
       "properties" : {
         "objects" : {
           "type" : "array",
-          "description" : "List of simple.SimpleObject",
+          "description" : "List of simple.Clientes",
           "items" : {
-            "$ref" : "#/definitions/simple.SimpleObjectRepr"
+            "$ref" : "#/definitions/simple.ClientesRepr"
           }
         }
       },
