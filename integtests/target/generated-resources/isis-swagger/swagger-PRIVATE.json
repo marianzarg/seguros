@@ -368,7 +368,7 @@
                   }
                 }
               },
-              "sexo" : {
+              "dNI" : {
                 "type" : "object",
                 "properties" : {
                   "value" : {
@@ -376,7 +376,7 @@
                   }
                 }
               },
-              "dNI" : {
+              "sexo" : {
                 "type" : "object",
                 "properties" : {
                   "value" : {
