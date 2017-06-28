@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 domainapp\dom\cliente\QClientes.class
 domainapp\dom\cliente\ClientesRepository.class
 domainapp\dom\marca\Marcas$DeleteDomainEvent.class
@@ -8,8 +9,30 @@ domainapp\dom\DomainAppDomainModule.class
 domainapp\dom\marca\MarcasMenu.class
 domainapp\dom\cliente\ClientesMenu.class
 domainapp\dom\marca\Marcas.class
+=======
+domainapp\dom\simple\SimpleObject$NotesDomainEvent.class
+domainapp\dom\simple\SimpleObject$UpdateNameDomainEvent.class
+domainapp\dom\tipoVehiculo\TipoVehiculo.class
+domainapp\dom\tipoVehiculo\TipoVehiculoMenu$CreateDomainEvent.class
+domainapp\dom\tipoVehiculo\TipoVehiculoRepository.class
+domainapp\dom\tipoVehiculo\TipoVehiculo$DeleteDomainEvent.class
+domainapp\dom\tipoVehiculo\QTipoVehiculo.class
+domainapp\dom\simple\SimpleObjectRepository.class
+domainapp\dom\simple\SimpleObject$DeleteDomainEvent.class
+>>>>>>> tipoVehiculo
 domainapp\dom\DomainAppDomManifest.class
 domainapp\dom\cliente\Clientes$DeleteDomainEvent.class
 domainapp\dom\cliente\Sexo.class
+<<<<<<< HEAD
 domainapp\dom\marca\QMarcas.class
+=======
+domainapp\dom\cliente\QClientes.class
+domainapp\dom\simple\SimpleObjectMenu$CreateDomainEvent.class
+domainapp\dom\cliente\ClientesRepository.class
+domainapp\dom\cliente\Clientes.class
+domainapp\dom\tipoVehiculo\TipoVehiculoMenu.class
+domainapp\dom\DomainAppDomainModule.class
+domainapp\dom\cliente\ClientesMenu.class
+domainapp\dom\simple\SimpleObjectMenu.class
+>>>>>>> tipoVehiculo
 domainapp\dom\cliente\ClientesMenu$CreateDomainEvent.class
