@@ -99,7 +99,7 @@ public class ClientesMenu {
     		@ParameterLayout(named="Sexo") final Sexo sexo,
             @ParameterLayout(named="Dirección") final String direccion, 
             @ParameterLayout(named="Teléfono") final String telefono,
-    		@ParameterLayout(named="E-Mail") @Property(editing= final String mail,
+    		@ParameterLayout(named="E-Mail") final String mail,
             //@ParameterLayout(named="CUIT/CUIL") final String cuitcuil,
             @ParameterLayout(named="Fecha de Nacimiento") final Date fechaNacimiento, 
             @ParameterLayout(named="Notif. Cumpleaños") final boolean notificacionCumpleanios) {
