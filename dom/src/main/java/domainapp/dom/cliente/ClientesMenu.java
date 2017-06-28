@@ -20,7 +20,6 @@ package domainapp.dom.cliente;
 
 import java.util.Date;
 import java.util.List;
-
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.BookmarkPolicy;
@@ -32,7 +31,6 @@ import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.eventbus.ActionDomainEvent;
 
-import domainapp.dom.simple.SimpleObject;
 
 @DomainService(
         nature = NatureOfService.VIEW_MENU_ONLY,

@@ -30,52 +30,6 @@
         }
       }
     },
-    "/objects/domainapp.app.services.homepage.HomePageViewModel/{objectId}" : {
-      "get" : {
-        "tags" : [ "homepage" ],
-        "description" : "RO Spec v1.0, section 14.1",
-        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/object" ],
-        "parameters" : [ {
-          "name" : "objectId",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "domainapp.app.services.homepage.HomePageViewModel , if Accept: application/json;profile=urn:org.apache.isis/v1",
-            "schema" : {
-              "$ref" : "#/definitions/domainapp.app.services.homepage.HomePageViewModelRepr"
-            }
-          }
-        }
-      }
-    },
-    "/objects/domainapp.app.services.homepage.HomePageViewModel/{objectId}/collections/objects" : {
-      "get" : {
-        "tags" : [ "homepage" ],
-        "description" : "RO Spec v1.0, section 17.1: resource of domainapp.app.services.homepage.HomePageViewModel#objects",
-        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/object-collection" ],
-        "parameters" : [ {
-          "name" : "objectId",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "domainapp.app.services.homepage.HomePageViewModel#objects , if Accept: application/json;profile=urn:org.apache.isis/v1",
-            "schema" : {
-              "type" : "array",
-              "description" : "List of simple.SimpleObject",
-              "items" : {
-                "$ref" : "#/definitions/simple.SimpleObjectRepr"
-              }
-            }
-          }
-        }
-      }
-    },
     "/objects/org.apache.isis.applib.services.config.ConfigurationProperty/{objectId}" : {
       "get" : {
         "tags" : [ "> apache isis internals" ],
@@ -147,7 +101,7 @@
         }
       }
     },
-    "/objects/simple.SimpleObject/{objectId}" : {
+    "/objects/simple.Marcas/{objectId}" : {
       "get" : {
         "tags" : [ "simple" ],
         "description" : "RO Spec v1.0, section 14.1",
@@ -160,18 +114,18 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "simple.SimpleObject , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "description" : "simple.Marcas , if Accept: application/json;profile=urn:org.apache.isis/v1",
             "schema" : {
-              "$ref" : "#/definitions/simple.SimpleObjectRepr"
+              "$ref" : "#/definitions/simple.MarcasRepr"
             }
           }
         }
       }
     },
-    "/objects/simple.SimpleObject/{objectId}/actions/delete/invoke" : {
+    "/objects/simple.Marcas/{objectId}/actions/borrarMarca/invoke" : {
       "post" : {
         "tags" : [ "simple" ],
-        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of simple.SimpleObject#delete",
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of simple.Marcas#borrarMarca",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
         "parameters" : [ {
@@ -189,48 +143,9 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "simple.SimpleObject#delete",
+            "description" : "simple.Marcas#borrarMarca",
             "schema" : {
               "type" : "object"
-            }
-          }
-        }
-      }
-    },
-    "/objects/simple.SimpleObject/{objectId}/actions/updateName/invoke" : {
-      "put" : {
-        "tags" : [ "simple" ],
-        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of simple.SimpleObject#updateName",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
-        "parameters" : [ {
-          "name" : "objectId",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "required" : false,
-          "schema" : {
-            "type" : "object",
-            "properties" : {
-              "name" : {
-                "type" : "object",
-                "properties" : {
-                  "value" : {
-                    "type" : "object"
-                  }
-                }
-              }
-            }
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "simple.SimpleObject#updateName",
-            "schema" : {
-              "$ref" : "#/definitions/simple.SimpleObjectRepr"
             }
           }
         }
@@ -541,7 +456,7 @@
         }
       }
     },
-    "/services/SimpleObjectMenu" : {
+    "/services/MarcasMenu" : {
       "get" : {
         "tags" : [ "> services" ],
         "description" : "RO Spec v1.0, section 15.1",
@@ -551,19 +466,19 @@
           "200" : {
             "description" : "OK",
             "schema" : {
-              "$ref" : "#/definitions/SimpleObjectMenuRepr"
+              "$ref" : "#/definitions/MarcasMenuRepr"
             }
           }
         }
       }
     },
-    "/services/SimpleObjectMenu/actions/buscarPorNombre/invoke" : {
+    "/services/MarcasMenu/actions/buscarPorNombre/invoke" : {
       "get" : {
         "tags" : [ "> services" ],
-        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of SimpleObjectMenu#buscarPorNombre",
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of MarcasMenu#buscarPorNombre",
         "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
         "parameters" : [ {
-          "name" : "name",
+          "name" : "nombre",
           "in" : "query",
           "description" : "RO Spec v1.0, section 2.9.1",
           "required" : false,
@@ -577,22 +492,22 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "SimpleObjectMenu#buscarPorNombre , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "description" : "MarcasMenu#buscarPorNombre , if Accept: application/json;profile=urn:org.apache.isis/v1",
             "schema" : {
               "type" : "array",
-              "description" : "List of simple.SimpleObject",
+              "description" : "List of simple.Marcas",
               "items" : {
-                "$ref" : "#/definitions/simple.SimpleObjectRepr"
+                "$ref" : "#/definitions/simple.MarcasRepr"
               }
             }
           }
         }
       }
     },
-    "/services/SimpleObjectMenu/actions/crear/invoke" : {
+    "/services/MarcasMenu/actions/crear/invoke" : {
       "post" : {
         "tags" : [ "> services" ],
-        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of SimpleObjectMenu#crear",
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of MarcasMenu#crear",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
         "parameters" : [ {
@@ -602,7 +517,7 @@
           "schema" : {
             "type" : "object",
             "properties" : {
-              "name" : {
+              "nombre" : {
                 "type" : "object",
                 "properties" : {
                   "value" : {
@@ -615,28 +530,68 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "SimpleObjectMenu#crear , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "description" : "MarcasMenu#crear , if Accept: application/json;profile=urn:org.apache.isis/v1",
             "schema" : {
-              "$ref" : "#/definitions/simple.SimpleObjectRepr"
+              "$ref" : "#/definitions/simple.MarcasRepr"
             }
           }
         }
       }
     },
-    "/services/SimpleObjectMenu/actions/listar/invoke" : {
+    "/services/MarcasMenu/actions/listar/invoke" : {
       "get" : {
         "tags" : [ "> services" ],
-        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of SimpleObjectMenu#listar",
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of MarcasMenu#listar",
         "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
         "parameters" : [ ],
         "responses" : {
           "200" : {
-            "description" : "SimpleObjectMenu#listar , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "description" : "MarcasMenu#listar , if Accept: application/json;profile=urn:org.apache.isis/v1",
             "schema" : {
               "type" : "array",
-              "description" : "List of simple.SimpleObject",
+              "description" : "List of simple.Marcas",
               "items" : {
-                "$ref" : "#/definitions/simple.SimpleObjectRepr"
+                "$ref" : "#/definitions/simple.MarcasRepr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/MarcasMenu/actions/listarActivos/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of MarcasMenu#listarActivos",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "MarcasMenu#listarActivos , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.Marcas",
+              "items" : {
+                "$ref" : "#/definitions/simple.MarcasRepr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/MarcasMenu/actions/listarInactivos/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of MarcasMenu#listarInactivos",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "MarcasMenu#listarInactivos , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.Marcas",
+              "items" : {
+                "$ref" : "#/definitions/simple.MarcasRepr"
               }
             }
           }
@@ -692,30 +647,6 @@
     }
   },
   "definitions" : {
-    "simple.SimpleObjectRepr" : {
-      "type" : "object",
-      "properties" : {
-        "datanucleusIdLong" : {
-          "type" : "integer",
-          "format" : "int64"
-        },
-        "datanucleusVersionLong" : {
-          "type" : "integer",
-          "format" : "int64"
-        },
-        "datanucleusVersionTimestamp" : {
-          "type" : "integer",
-          "format" : "int64"
-        },
-        "name" : {
-          "type" : "string"
-        },
-        "notes" : {
-          "type" : "string"
-        }
-      },
-      "description" : "simple.SimpleObject (domainapp.dom.simple.SimpleObject)"
-    },
     "LinkRepr" : {
       "type" : "object",
       "required" : [ "href", "method", "rel" ],
@@ -735,8 +666,8 @@
         "method" : {
           "type" : "string",
           "description" : "HTTP verb to access",
-          "enum" : [ "GET", "POST", "PUT", "DELETE" ],
-          "default" : "GET"
+          "default" : "GET",
+          "enum" : [ "GET", "POST", "PUT", "DELETE" ]
         },
         "type" : {
           "type" : "string",
@@ -817,18 +748,29 @@
       },
       "description" : "simple.Clientes (domainapp.dom.cliente.Clientes)"
     },
-    "domainapp.app.services.homepage.HomePageViewModelRepr" : {
+    "simple.MarcasRepr" : {
       "type" : "object",
       "properties" : {
-        "objects" : {
-          "type" : "array",
-          "description" : "List of simple.SimpleObject",
-          "items" : {
-            "$ref" : "#/definitions/simple.SimpleObjectRepr"
-          }
+        "datanucleusIdLong" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "datanucleusVersionLong" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "datanucleusVersionTimestamp" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "activo" : {
+          "type" : "boolean"
+        },
+        "nombre" : {
+          "type" : "string"
         }
       },
-      "description" : "domainapp.app.services.homepage.HomePageViewModel (domainapp.app.services.homepage.HomePageViewModel)"
+      "description" : "simple.Marcas (domainapp.dom.marca.Marcas)"
     },
     "RestfulObjectsSupportingHomePageRepr" : {
       "type" : "object",
@@ -923,19 +865,7 @@
       },
       "description" : "RO Spec v1.0, section 6.2"
     },
-    "org.apache.isis.applib.services.config.ConfigurationPropertyRepr" : {
-      "type" : "object",
-      "properties" : {
-        "key" : {
-          "type" : "string"
-        },
-        "value" : {
-          "type" : "string"
-        }
-      },
-      "description" : "org.apache.isis.applib.services.config.ConfigurationProperty (org.apache.isis.applib.services.config.ConfigurationProperty)"
-    },
-    "SimpleObjectMenuRepr" : {
+    "MarcasMenuRepr" : {
       "type" : "object",
       "required" : [ "extensions", "links" ],
       "properties" : {
@@ -953,13 +883,25 @@
         },
         "serviceId" : {
           "type" : "string",
-          "default" : "SimpleObjectMenu"
+          "default" : "MarcasMenu"
         },
         "members" : {
           "type" : "object"
         }
       },
-      "description" : "RO Spec v1.0, section 15.1.2: representation of SimpleObjectMenu"
+      "description" : "RO Spec v1.0, section 15.1.2: representation of MarcasMenu"
+    },
+    "org.apache.isis.applib.services.config.ConfigurationPropertyRepr" : {
+      "type" : "object",
+      "properties" : {
+        "key" : {
+          "type" : "string"
+        },
+        "value" : {
+          "type" : "string"
+        }
+      },
+      "description" : "org.apache.isis.applib.services.config.ConfigurationProperty (org.apache.isis.applib.services.config.ConfigurationProperty)"
     },
     "RestfulObjectsSupportingServicesRepr" : {
       "type" : "object",
