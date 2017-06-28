@@ -50,13 +50,13 @@
                                 <c:property id="telefono" namedEscaped="true">
                                     <c:action id="updateTelefono"/>
                                 </c:property>
-								<c:property id="mail" namedEscaped="true">
+								<c:property id="mail" namedEscaped="false" unchanging="true">
                                     <c:action id="updateMail"/>
                                 </c:property>
-                                <c:property id="cuitcuil" namedEscaped="true">
+                                <c:property id="cuitcuil" >
                                     <c:action id="updateCuitcuil"/>
                                 </c:property>
-								<c:property id="fechaNacimiento" namedEscaped="true">
+								<c:property id="fechaNacimiento" namedEscaped="true" >
                                     <c:action id="updatefecheNacimiento"/>
                                 </c:property>
                                 <c:property id="notificacionCumpleanios" namedEscaped="true">
