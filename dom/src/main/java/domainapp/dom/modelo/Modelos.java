@@ -1,4 +1,4 @@
-package domainapp.dom.marca;
+package domainapp.dom.modelo;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
@@ -19,11 +19,11 @@ import org.apache.isis.applib.util.ObjectContracts;
 @javax.jdo.annotations.PersistenceCapable(
         identityType=IdentityType.DATASTORE,
         schema = "simple",
-        table = "Marcas"
+        table = "Modelos"
 )
 @javax.jdo.annotations.DatastoreIdentity(
         strategy=javax.jdo.annotations.IdGeneratorStrategy.IDENTITY,
-         column="marcaId")
+         column="modeloId")
 @javax.jdo.annotations.Version(
         strategy= VersionStrategy.DATE_TIME,
         column="version")
@@ -31,34 +31,33 @@ import org.apache.isis.applib.util.ObjectContracts;
         @javax.jdo.annotations.Query(
                 name = "buscarPorNombre", language = "JDOQL",
                 value = "SELECT "
-                        + "FROM domainapp.dom.simple.Marcas "
+                        + "FROM domainapp.dom.simple.Modelos "
                         + "WHERE nombre.indexOf(:nombre) >= 0 "),
         @javax.jdo.annotations.Query(
                 name = "listarActivos", language = "JDOQL",
                 value = "SELECT "
-                        + "FROM domainapp.dom.simple.Marcas "
+                        + "FROM domainapp.dom.simple.Modelos "
                         + "WHERE activo == true "),
         @javax.jdo.annotations.Query(
                 name = "listarInactivos", language = "JDOQL",
                 value = "SELECT "
-                        + "FROM domainapp.dom.simple.Marcas "
+                        + "FROM domainapp.dom.simple.Modelos "
                         + "WHERE activo == false ") 
 })
-@javax.jdo.annotations.Unique(name="Marcas_nombre_UNQ", members = {"nombre"})
 @DomainObject(
         publishing = Publishing.ENABLED,
         auditing = Auditing.ENABLED
 )
-public class Marcas implements Comparable<Marcas> {
+public class Modelos implements Comparable<Modelos> {
 	 //region > title
     public TranslatableString title() {
-        return TranslatableString.tr("Marca: {nombre}", "nombre", getNombre());
+        return TranslatableString.tr("Modelo: {nombre}", "nombre", getNombre());
     }
     //endregion
 
     public static final int NAME_LENGTH = 200;
     // Constructor
-    public Marcas(String nombre) {
+    public Modelos(String nombre) {
 		super();
 		this.nombre = nombre;
 		this.activo = true;
@@ -93,12 +92,12 @@ public class Marcas implements Comparable<Marcas> {
 
     
     //region > delete (action)
-    public static class DeleteDomainEvent extends ActionDomainEvent<Marcas> {}
+    public static class DeleteDomainEvent extends ActionDomainEvent<Modelos> {}
     @Action(
             domainEvent = DeleteDomainEvent.class,
             semantics = SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE
     )
-    public void borrarMarca() {
+    public void borrarModelo() {
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' deleted", title));
         setActivo(false);
@@ -112,7 +111,7 @@ public class Marcas implements Comparable<Marcas> {
         return ObjectContracts.toString(this, "name");
     }
     @Override
-    public int compareTo(final Marcas other) {
+    public int compareTo(final Modelos other) {
         return ObjectContracts.compare(this, other, "nombre");
     }
 

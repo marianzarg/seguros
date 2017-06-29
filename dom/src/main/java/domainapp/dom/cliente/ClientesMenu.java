@@ -39,28 +39,28 @@ import org.apache.isis.applib.services.eventbus.ActionDomainEvent;
 )
 @DomainServiceLayout(
         named = "Clientes",
-        menuOrder = "10"
+        menuOrder = "1"
 )
 public class ClientesMenu {
 
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    @MemberOrder(sequence = "1")
+    @MemberOrder(sequence = "2")
     public List<Clientes> listar() {
         return clientesRepository.listar();
     }
     
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    @MemberOrder(sequence = "2")
+    @MemberOrder(sequence = "3")
     public List<Clientes> listarActivos() {
         return clientesRepository.listarActivos();
     }
     
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    @MemberOrder(sequence = "3")
+    @MemberOrder(sequence = "4")
     public List<Clientes> listarInactivos() {
         return clientesRepository.listarInactivos();
     }
@@ -68,7 +68,7 @@ public class ClientesMenu {
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    @MemberOrder(sequence = "4")
+    @MemberOrder(sequence = "5")
     public List<Clientes> buscarPorNombre(
             @ParameterLayout(named="Nombre")
             final String nombre
@@ -78,7 +78,7 @@ public class ClientesMenu {
     
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    @MemberOrder(sequence = "5")
+    @MemberOrder(sequence = "6")
     public List<Clientes> buscarPorDNI(
             @ParameterLayout(named="DNI")
             final int dni
@@ -89,7 +89,7 @@ public class ClientesMenu {
 
     public static class CreateDomainEvent extends ActionDomainEvent<ClientesMenu> {}
     @Action(domainEvent = CreateDomainEvent.class)
-    @MemberOrder(sequence = "4")
+    @MemberOrder(sequence = "1")
     public Clientes crear(
             @ParameterLayout(named="Nombre") final String nombre, 
             @ParameterLayout(named="Apellido") final String apellido,

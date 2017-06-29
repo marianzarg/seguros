@@ -1,4 +1,4 @@
-package domainapp.dom.vehiculo;
+package domainapp.dom.modelo;
 
 import java.util.Date;
 import java.util.List;
@@ -23,60 +23,57 @@ import domainapp.dom.cliente.ClientesMenu.CreateDomainEvent;
 
 @DomainService(
         nature = NatureOfService.VIEW_MENU_ONLY,
-        repositoryFor = Vehiculos.class
+        repositoryFor = Modelos.class
 )
 @DomainServiceLayout(
-        named = "Vehiculos",
-        menuOrder = "2"
+        named = "Modelos",
+        menuOrder = "5"
 )
-public class VehiculosMenu {
+public class ModelosMenu {
 	
 	  @Action(semantics = SemanticsOf.SAFE)
 	    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
 	    @MemberOrder(sequence = "2")
-	    public List<Vehiculos> listar() {
-	        return vehiculosRepository.listar();
+	    public List<Modelos> listar() {
+	        return modelosRepository.listar();
 	    }
 	    
 	    @Action(semantics = SemanticsOf.SAFE)
 	    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
 	    @MemberOrder(sequence = "3")
-	    public List<Vehiculos> listarActivos() {
-	        return vehiculosRepository.listarActivos();
+	    public List<Modelos> listarActivos() {
+	        return modelosRepository.listarActivos();
 	    }
 	    
 	    @Action(semantics = SemanticsOf.SAFE)
 	    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
 	    @MemberOrder(sequence = "4")
-	    public List<Vehiculos> listarInactivos() {
-	        return vehiculosRepository.listarInactivos();
+	    public List<Modelos> listarInactivos() {
+	        return modelosRepository.listarInactivos();
 	    }
 
 
 	    @Action(semantics = SemanticsOf.SAFE)
 	    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
 	    @MemberOrder(sequence = "5")
-	    public List<Vehiculos> buscarPorDominio(
-	            @ParameterLayout(named="Dominio")
-	            final String dominio
+	    public List<Modelos> buscarPorNombre(
+	            @ParameterLayout(named="Nombre")
+	            final String nombre
 	    ) {
-	        return vehiculosRepository.buscarPorDominio(dominio);
+	        return modelosRepository.buscarPorNombre(nombre);
 	    }
 	    
 
-	    public static class CreateDomainEvent extends ActionDomainEvent<VehiculosMenu> {}
+	    public static class CreateDomainEvent extends ActionDomainEvent<ModelosMenu> {}
 	    @Action(domainEvent = CreateDomainEvent.class)
 	    @MemberOrder(sequence = "1")
-	    public Vehiculos crear(
-	            @ParameterLayout(named="Dominio") final String dominio,
-	    		@ParameterLayout(named="Año") final int anio,
-	    		@ParameterLayout(named="Numero de Motor") final String numeroMotor,
-	    		@ParameterLayout(named="Numero de Chasis") final String numeroChasis){
-	        return vehiculosRepository.crear(dominio, anio, numeroMotor, numeroChasis);
+	    public Modelos crear(
+	            @ParameterLayout(named="Nombre") final String nombre){
+	        return modelosRepository.crear(nombre);
 	    }
 
 
 	    @javax.inject.Inject
-	    VehiculosRepository vehiculosRepository;
+	    ModelosRepository modelosRepository;
 
 }

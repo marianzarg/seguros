@@ -27,27 +27,27 @@ import domainapp.dom.cliente.ClientesMenu.CreateDomainEvent;
 )
 @DomainServiceLayout(
         named = "Marcas",
-        menuOrder = "15"
+        menuOrder = "3"
 )
 public class MarcasMenu {
 	
 	  @Action(semantics = SemanticsOf.SAFE)
 	    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-	    @MemberOrder(sequence = "4")
+	    @MemberOrder(sequence = "2")
 	    public List<Marcas> listar() {
 	        return marcasRepository.listar();
 	    }
 	    
 	    @Action(semantics = SemanticsOf.SAFE)
 	    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-	    @MemberOrder(sequence = "2")
+	    @MemberOrder(sequence = "3")
 	    public List<Marcas> listarActivos() {
 	        return marcasRepository.listarActivos();
 	    }
 	    
 	    @Action(semantics = SemanticsOf.SAFE)
 	    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-	    @MemberOrder(sequence = "3")
+	    @MemberOrder(sequence = "4")
 	    public List<Marcas> listarInactivos() {
 	        return marcasRepository.listarInactivos();
 	    }

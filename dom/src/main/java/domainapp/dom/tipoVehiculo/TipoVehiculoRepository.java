@@ -26,6 +26,8 @@ import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.services.registry.ServiceRegistry2;
 import org.apache.isis.applib.services.repository.RepositoryService;
 
+import domainapp.dom.modelo.Modelos;
+
 @DomainService(
         nature = NatureOfService.DOMAIN,
         repositoryFor = TipoVehiculo.class
@@ -44,6 +46,20 @@ public class TipoVehiculoRepository {
                         "tipoVehiculoNombre", tipoVehiculoNombre));
     }
 
+    public List<TipoVehiculo> listarActivos(){
+      	 return repositoryService.allMatches(
+                   new QueryDefault<>(
+                		   TipoVehiculo.class,
+                           "listarActivos"));
+      }
+       
+       public List<TipoVehiculo> listarInactivos(){
+         	 return repositoryService.allMatches(
+                      new QueryDefault<>(
+                    		  TipoVehiculo.class,
+                              "listarInactivos"));
+         }
+    
     public TipoVehiculo crear(final String tipoVehiculoNombre) {
         final TipoVehiculo object = new TipoVehiculo(tipoVehiculoNombre);
         serviceRegistry.injectServicesInto(object);

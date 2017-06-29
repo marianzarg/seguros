@@ -31,28 +31,42 @@ import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.eventbus.ActionDomainEvent;
 
+
 @DomainService(
         nature = NatureOfService.VIEW_MENU_ONLY,
         repositoryFor = TipoVehiculo.class
 )
 @DomainServiceLayout(
         named = "Tipo Vehiculo",
-        menuOrder = "20"
+        menuOrder = "4"
 )
 public class TipoVehiculoMenu {
 
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    @MemberOrder(sequence = "1")
+    @MemberOrder(sequence = "2")
     public List<TipoVehiculo> listar() {
         return tipoVehiculoRepository.listar();
     }
-
+    
+    @Action(semantics = SemanticsOf.SAFE)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+    @MemberOrder(sequence = "3")
+    public List<TipoVehiculo> listarActivos() {
+        return tipoVehiculoRepository.listarActivos();
+    }
+    
+    @Action(semantics = SemanticsOf.SAFE)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+    @MemberOrder(sequence = "4")
+    public List<TipoVehiculo> listarInactivos() {
+        return tipoVehiculoRepository.listarInactivos();
+    }
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    @MemberOrder(sequence = "2")
+    @MemberOrder(sequence = "5")
     public List<TipoVehiculo> buscarPorNombre(
             @ParameterLayout(named="Name")
             final String tipoVehiculoNombre
@@ -63,7 +77,7 @@ public class TipoVehiculoMenu {
 
     public static class CreateDomainEvent extends ActionDomainEvent<TipoVehiculoMenu> {}
     @Action(domainEvent = CreateDomainEvent.class)
-    @MemberOrder(sequence = "3")
+    @MemberOrder(sequence = "1")
     public TipoVehiculo crear(
             @ParameterLayout(named="Nombre")
             final String tipoVehiculoNombre) {

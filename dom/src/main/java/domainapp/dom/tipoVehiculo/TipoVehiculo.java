@@ -53,7 +53,17 @@ import org.apache.isis.applib.util.ObjectContracts;
                 name = "findByName", language = "JDOQL",
                 value = "SELECT "
                         + "FROM domainapp.dom.simple.tipoVehiculo "
-                        + "WHERE tipoVehiculoNombre.indexOf(:tipoVehiculoNombre) >= 0 ")
+                        + "WHERE tipoVehiculoNombre.indexOf(:tipoVehiculoNombre) >= 0 "),
+        @javax.jdo.annotations.Query(
+                name = "listarActivos", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.dom.simple.tipoVehiculo "
+                        + "WHERE tipoVehiculoActivo == true "),
+        @javax.jdo.annotations.Query(
+                name = "listarInactivos", language = "JDOQL",
+                value = "SELECT "
+                        + "FROM domainapp.dom.simple.tipoVehiculo "
+                        + "WHERE tipoVehiculoActivo == false ") 
 })
 @javax.jdo.annotations.Unique(name="tipoVehiculoject_tipoVehiculoNombre_UNQ", members = {"tipoVehiculoNombre"})
 @DomainObject(
@@ -64,7 +74,7 @@ public class TipoVehiculo implements Comparable<TipoVehiculo> {
 
     //region > title
     public TranslatableString title() {
-        return TranslatableString.tr("Object: {name}", "name", getTipoVehiculoNombre());
+        return TranslatableString.tr("Tipo Vehiculo: {name}", "name", getTipoVehiculoNombre());
     }
     //endregion
 
@@ -91,13 +101,15 @@ public class TipoVehiculo implements Comparable<TipoVehiculo> {
 	}
 
 	@javax.jdo.annotations.Column(allowsNull = "false")
-    private Boolean tipoVehiculoActivo;
-	
-	public Boolean getTipoVehiculoActivo() {
+    private boolean tipoVehiculoActivo;
+    @Property(
+            editing = Editing.DISABLED
+    )
+	public boolean getTipoVehiculoActivo() {
 		return tipoVehiculoActivo;
 	}
 
-	public void setTipoVehiculoActivo(Boolean tipoVehiculoActivo) {
+	public void setTipoVehiculoActivo(boolean tipoVehiculoActivo) {
 		this.tipoVehiculoActivo = tipoVehiculoActivo;
 	}
 
@@ -109,7 +121,7 @@ public class TipoVehiculo implements Comparable<TipoVehiculo> {
             domainEvent = DeleteDomainEvent.class,
             semantics = SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE
     )
-    public void delete() {
+    public void borrarTipoVehiculo() {
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' deleted", title));
         setTipoVehiculoActivo(false);
