@@ -151,47 +151,6 @@
         }
       }
     },
-<<<<<<< HEAD
-=======
-    "/objects/simple.SimpleObject/{objectId}/actions/updateName/invoke" : {
-      "put" : {
-        "tags" : [ "simple" ],
-        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of simple.SimpleObject#updateName",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
-        "parameters" : [ {
-          "name" : "objectId",
-          "in" : "path",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "required" : false,
-          "schema" : {
-            "type" : "object",
-            "properties" : {
-              "name" : {
-                "type" : "object",
-                "properties" : {
-                  "value" : {
-                    "type" : "object"
-                  }
-                }
-              }
-            }
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "simple.SimpleObject#updateName",
-            "schema" : {
-              "$ref" : "#/definitions/simple.SimpleObjectRepr"
-            }
-          }
-        }
-      }
-    },
     "/objects/simple.TipoVehiculo/{objectId}" : {
       "get" : {
         "tags" : [ "simple" ],
@@ -242,7 +201,56 @@
         }
       }
     },
->>>>>>> tipoVehiculo
+    "/objects/simple.Vehiculos/{objectId}" : {
+      "get" : {
+        "tags" : [ "simple" ],
+        "description" : "RO Spec v1.0, section 14.1",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/object" ],
+        "parameters" : [ {
+          "name" : "objectId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "simple.Vehiculos , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "$ref" : "#/definitions/simple.VehiculosRepr"
+            }
+          }
+        }
+      }
+    },
+    "/objects/simple.Vehiculos/{objectId}/actions/borrarVechiculo/invoke" : {
+      "post" : {
+        "tags" : [ "simple" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of simple.Vehiculos#borrarVechiculo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ {
+          "name" : "objectId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "object"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "simple.Vehiculos#borrarVechiculo",
+            "schema" : {
+              "type" : "object"
+            }
+          }
+        }
+      }
+    },
     "/services" : {
       "get" : {
         "tags" : [ "> restful objects supporting resources" ],
@@ -784,6 +792,172 @@
         }
       }
     },
+    "/services/VehiculosMenu" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 15.1",
+        "produces" : [ "application/json", "application/json;profile=urn:org.restfulobjects:repr-types/object" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/VehiculosMenuRepr"
+            }
+          }
+        }
+      }
+    },
+    "/services/VehiculosMenu/actions/buscarPorDominio/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of VehiculosMenu#buscarPorDominio",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ {
+          "name" : "dominio",
+          "in" : "query",
+          "description" : "RO Spec v1.0, section 2.9.1",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "x-isis-querystring",
+          "in" : "query",
+          "description" : "RO Spec v1.0, section 2.10: all (formal) arguments as base64 encoded string",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "VehiculosMenu#buscarPorDominio , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.Vehiculos",
+              "items" : {
+                "$ref" : "#/definitions/simple.VehiculosRepr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/VehiculosMenu/actions/crear/invoke" : {
+      "post" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of VehiculosMenu#crear",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "object",
+            "properties" : {
+              "dominio" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "año" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "numeroDeMotor" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "numeroDeChasis" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "VehiculosMenu#crear , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "$ref" : "#/definitions/simple.VehiculosRepr"
+            }
+          }
+        }
+      }
+    },
+    "/services/VehiculosMenu/actions/listar/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of VehiculosMenu#listar",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "VehiculosMenu#listar , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.Vehiculos",
+              "items" : {
+                "$ref" : "#/definitions/simple.VehiculosRepr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/VehiculosMenu/actions/listarActivos/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of VehiculosMenu#listarActivos",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "VehiculosMenu#listarActivos , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.Vehiculos",
+              "items" : {
+                "$ref" : "#/definitions/simple.VehiculosRepr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/VehiculosMenu/actions/listarInactivos/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of VehiculosMenu#listarInactivos",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "VehiculosMenu#listarInactivos , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.Vehiculos",
+              "items" : {
+                "$ref" : "#/definitions/simple.VehiculosRepr"
+              }
+            }
+          }
+        }
+      }
+    },
     "/user" : {
       "get" : {
         "tags" : [ "> restful objects supporting resources" ],
@@ -833,6 +1007,66 @@
     }
   },
   "definitions" : {
+    "VehiculosMenuRepr" : {
+      "type" : "object",
+      "required" : [ "extensions", "links" ],
+      "properties" : {
+        "links" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LinkRepr"
+          }
+        },
+        "extensions" : {
+          "type" : "object"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "serviceId" : {
+          "type" : "string",
+          "default" : "VehiculosMenu"
+        },
+        "members" : {
+          "type" : "object"
+        }
+      },
+      "description" : "RO Spec v1.0, section 15.1.2: representation of VehiculosMenu"
+    },
+    "simple.VehiculosRepr" : {
+      "type" : "object",
+      "properties" : {
+        "datanucleusIdLong" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "datanucleusVersionLong" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "datanucleusVersionTimestamp" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "activo" : {
+          "type" : "boolean"
+        },
+        "anio" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "dominio" : {
+          "type" : "string"
+        },
+        "numeroChasis" : {
+          "type" : "string"
+        },
+        "numeroMotor" : {
+          "type" : "string"
+        }
+      },
+      "description" : "simple.Vehiculos (domainapp.dom.vehiculo.Vehiculos)"
+    },
     "LinkRepr" : {
       "type" : "object",
       "required" : [ "href", "method", "rel" ],
@@ -923,9 +1157,30 @@
       },
       "description" : "simple.Clientes (domainapp.dom.cliente.Clientes)"
     },
-<<<<<<< HEAD
     "simple.MarcasRepr" : {
-=======
+      "type" : "object",
+      "properties" : {
+        "datanucleusIdLong" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "datanucleusVersionLong" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "datanucleusVersionTimestamp" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "activo" : {
+          "type" : "boolean"
+        },
+        "nombre" : {
+          "type" : "string"
+        }
+      },
+      "description" : "simple.Marcas (domainapp.dom.marca.Marcas)"
+    },
     "simple.TipoVehiculoRepr" : {
       "type" : "object",
       "properties" : {
@@ -949,32 +1204,6 @@
         }
       },
       "description" : "simple.TipoVehiculo (domainapp.dom.tipoVehiculo.TipoVehiculo)"
-    },
-    "SimpleObjectMenuRepr" : {
-      "type" : "object",
-      "required" : [ "extensions", "links" ],
-      "properties" : {
-        "links" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/LinkRepr"
-          }
-        },
-        "extensions" : {
-          "type" : "object"
-        },
-        "title" : {
-          "type" : "string"
-        },
-        "serviceId" : {
-          "type" : "string",
-          "default" : "SimpleObjectMenu"
-        },
-        "members" : {
-          "type" : "object"
-        }
-      },
-      "description" : "RO Spec v1.0, section 15.1.2: representation of SimpleObjectMenu"
     },
     "TipoVehiculoMenuRepr" : {
       "type" : "object",
@@ -1012,31 +1241,6 @@
         }
       },
       "description" : "Abbreviated version of the Link resource, used primarily to reference non-value objects"
-    },
-    "domainapp.app.services.homepage.HomePageViewModelRepr" : {
->>>>>>> tipoVehiculo
-      "type" : "object",
-      "properties" : {
-        "datanucleusIdLong" : {
-          "type" : "integer",
-          "format" : "int64"
-        },
-        "datanucleusVersionLong" : {
-          "type" : "integer",
-          "format" : "int64"
-        },
-        "datanucleusVersionTimestamp" : {
-          "type" : "integer",
-          "format" : "int64"
-        },
-        "activo" : {
-          "type" : "boolean"
-        },
-        "nombre" : {
-          "type" : "string"
-        }
-      },
-      "description" : "simple.Marcas (domainapp.dom.marca.Marcas)"
     },
     "RestfulObjectsSupportingHomePageRepr" : {
       "type" : "object",
@@ -1131,7 +1335,6 @@
       },
       "description" : "RO Spec v1.0, section 6.2"
     },
-<<<<<<< HEAD
     "MarcasMenuRepr" : {
       "type" : "object",
       "required" : [ "extensions", "links" ],
@@ -1158,8 +1361,6 @@
       },
       "description" : "RO Spec v1.0, section 15.1.2: representation of MarcasMenu"
     },
-=======
->>>>>>> tipoVehiculo
     "org.apache.isis.applib.services.config.ConfigurationPropertyRepr" : {
       "type" : "object",
       "properties" : {

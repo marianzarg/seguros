@@ -2,8 +2,11 @@
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/tipoVehiculo/TipoVehiculoRepository.java
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/cliente/ClientesMenu.java
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/cliente/ClientesRepository.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/vehiculo/Vehiculos.java
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/marca/MarcasRepository.java
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/tipoVehiculo/TipoVehiculo.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/vehiculo/VehiculosRepository.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/vehiculo/VehiculosMenu.java
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/DomainAppDomManifest.java
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/DomainAppDomainModule.java
 /home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/cliente/GenerarCuit.java

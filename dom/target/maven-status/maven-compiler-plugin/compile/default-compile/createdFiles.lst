@@ -2,11 +2,14 @@ domainapp/dom/tipoVehiculo/TipoVehiculo.class
 domainapp/dom/tipoVehiculo/QTipoVehiculo.class
 domainapp/dom/marca/MarcasRepository.class
 domainapp/dom/cliente/ClientesRepository.class
+domainapp/dom/vehiculo/Vehiculos.class
 domainapp/dom/DomainAppDomainModule.class
 domainapp/dom/tipoVehiculo/TipoVehiculoMenu$CreateDomainEvent.class
 domainapp/dom/cliente/QClientes.class
 domainapp/dom/cliente/ClientesMenu.class
 domainapp/dom/cliente/GenerarCuit.class
+domainapp/dom/vehiculo/VehiculosRepository.class
+domainapp/dom/vehiculo/VehiculosMenu.class
 domainapp/dom/marca/MarcasMenu$CreateDomainEvent.class
 domainapp/dom/DomainAppDomManifest.class
 domainapp/dom/tipoVehiculo/TipoVehiculo$DeleteDomainEvent.class
@@ -15,8 +18,11 @@ domainapp/dom/marca/Marcas$DeleteDomainEvent.class
 domainapp/dom/marca/MarcasMenu.class
 domainapp/dom/marca/QMarcas.class
 domainapp/dom/cliente/ClientesMenu$CreateDomainEvent.class
+domainapp/dom/vehiculo/VehiculosMenu$CreateDomainEvent.class
 domainapp/dom/cliente/Sexo.class
+domainapp/dom/vehiculo/Vehiculos$DeleteDomainEvent.class
 domainapp/dom/tipoVehiculo/TipoVehiculoRepository.class
+domainapp/dom/vehiculo/QVehiculos.class
 domainapp/dom/cliente/Clientes.class
 domainapp/dom/cliente/Clientes$DeleteDomainEvent.class
 domainapp/dom/tipoVehiculo/TipoVehiculoMenu.class
