@@ -1,0 +1,13 @@
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/cliente/Clientes.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/tipoVehiculo/TipoVehiculoRepository.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/cliente/ClientesMenu.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/cliente/ClientesRepository.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/marca/MarcasRepository.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/tipoVehiculo/TipoVehiculo.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/DomainAppDomManifest.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/DomainAppDomainModule.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/cliente/GenerarCuit.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/marca/Marcas.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/marca/MarcasMenu.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/tipoVehiculo/TipoVehiculoMenu.java
+/home/leandro/workspace/seguros/dom/src/main/java/domainapp/dom/cliente/Sexo.java
