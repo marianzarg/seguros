@@ -740,6 +740,26 @@
         }
       }
     },
+    "/services/MarcasMenu/actions/traerTodos/invoke" : {
+      "get" : {
+        "tags" : [ "> services" ],
+        "description" : "RO Spec v1.0, section 19.1: (invoke) resource of MarcasMenu#traerTodos",
+        "produces" : [ "application/json;profile=urn:org.apache.isis/v1", "application/json;profile=urn:org.apache.isis/v1;suppress=true", "application/json;profile=urn:org.restfulobjects:repr-types/action-result" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "MarcasMenu#traerTodos , if Accept: application/json;profile=urn:org.apache.isis/v1",
+            "schema" : {
+              "type" : "array",
+              "description" : "List of simple.Marcas",
+              "items" : {
+                "$ref" : "#/definitions/simple.MarcasRepr"
+              }
+            }
+          }
+        }
+      }
+    },
     "/services/ModelosMenu" : {
       "get" : {
         "tags" : [ "> services" ],
@@ -802,6 +822,22 @@
             "type" : "object",
             "properties" : {
               "nombre" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "tipoVehiculo" : {
+                "type" : "object",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "marca" : {
                 "type" : "object",
                 "properties" : {
                   "value" : {
@@ -1318,8 +1354,8 @@
         "method" : {
           "type" : "string",
           "description" : "HTTP verb to access",
-          "enum" : [ "GET", "POST", "PUT", "DELETE" ],
-          "default" : "GET"
+          "default" : "GET",
+          "enum" : [ "GET", "POST", "PUT", "DELETE" ]
         },
         "type" : {
           "type" : "string",
@@ -1407,7 +1443,7 @@
         "activo" : {
           "type" : "boolean"
         },
-        "nombre" : {
+        "marcasNombre" : {
           "type" : "string"
         }
       },
@@ -1481,8 +1517,14 @@
         "activo" : {
           "type" : "boolean"
         },
+        "marcas" : {
+          "$ref" : "#/definitions/HrefRepr"
+        },
         "nombre" : {
           "type" : "string"
+        },
+        "tipoVehiculo" : {
+          "$ref" : "#/definitions/HrefRepr"
         }
       },
       "description" : "simple.Modelos (domainapp.dom.modelo.Modelos)"

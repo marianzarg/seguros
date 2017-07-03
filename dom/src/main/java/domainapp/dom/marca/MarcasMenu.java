@@ -63,6 +63,14 @@ public class MarcasMenu {
 	        return marcasRepository.buscarPorNombre(nombre);
 	    }
 	    
+	    
+	    @Action(semantics = SemanticsOf.SAFE)
+	    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+	    @MemberOrder(sequence = "6")
+	    public List<Marcas> traerTodos() {
+	        return marcasRepository.traerTodos();
+	    }
+	    
 
 	    public static class CreateDomainEvent extends ActionDomainEvent<MarcasMenu> {}
 	    @Action(domainEvent = CreateDomainEvent.class)

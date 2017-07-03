@@ -2,6 +2,7 @@ package domainapp.dom.modelo;
 
 import java.util.Date;
 import java.util.List;
+import java.util.SortedSet;
 
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
@@ -18,7 +19,11 @@ import domainapp.dom.cliente.Clientes;
 import domainapp.dom.cliente.ClientesMenu;
 import domainapp.dom.cliente.ClientesRepository;
 import domainapp.dom.cliente.Sexo;
+import domainapp.dom.tipoVehiculo.TipoVehiculo;
+import domainapp.dom.tipoVehiculo.TipoVehiculoRepository;
 import domainapp.dom.cliente.ClientesMenu.CreateDomainEvent;
+import domainapp.dom.marca.Marcas;
+import domainapp.dom.marca.MarcasRepository;
 
 
 @DomainService(
@@ -62,18 +67,26 @@ public class ModelosMenu {
 	    ) {
 	        return modelosRepository.buscarPorNombre(nombre);
 	    }
-	    
+
 
 	    public static class CreateDomainEvent extends ActionDomainEvent<ModelosMenu> {}
-	    @Action(domainEvent = CreateDomainEvent.class)
 	    @MemberOrder(sequence = "1")
 	    public Modelos crear(
-	            @ParameterLayout(named="Nombre") final String nombre){
-	        return modelosRepository.crear(nombre);
+	            @ParameterLayout(named="Nombre") final String nombre,
+	            @ParameterLayout(named="Tipo Vehiculo")final TipoVehiculo tipoVehiculo,
+	            @ParameterLayout(named="Marca") final Marcas marcas){
+	        return modelosRepository.crear(nombre, tipoVehiculo, marcas);
 	    }
 
 
 	    @javax.inject.Inject
 	    ModelosRepository modelosRepository;
+	    
 
+	    @javax.inject.Inject
+	    MarcasRepository marcaRepository;
+
+	    
+	    @javax.inject.Inject
+	    TipoVehiculoRepository vehiculoRepository;
 }

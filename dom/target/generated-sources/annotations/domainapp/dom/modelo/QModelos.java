@@ -28,6 +28,8 @@ public class QModelos extends PersistableExpressionImpl<Modelos> implements Pers
     }
 
     public final NumericExpression<Integer> NAME_LENGTH;
+    public final domainapp.dom.marca.QMarcas marcas;
+    public final domainapp.dom.tipoVehiculo.QTipoVehiculo tipoVehiculo;
     public final StringExpression nombre;
     public final BooleanExpression activo;
     public final ObjectExpression<org.apache.isis.applib.services.repository.RepositoryService> repositoryService;
@@ -38,6 +40,22 @@ public class QModelos extends PersistableExpressionImpl<Modelos> implements Pers
     {
         super(parent, name);
         this.NAME_LENGTH = new NumericExpressionImpl<Integer>(this, "NAME_LENGTH");
+        if (depth > 0)
+        {
+            this.marcas = new domainapp.dom.marca.QMarcas(this, "marcas", depth-1);
+        }
+        else
+        {
+            this.marcas = null;
+        }
+        if (depth > 0)
+        {
+            this.tipoVehiculo = new domainapp.dom.tipoVehiculo.QTipoVehiculo(this, "tipoVehiculo", depth-1);
+        }
+        else
+        {
+            this.tipoVehiculo = null;
+        }
         this.nombre = new StringExpressionImpl(this, "nombre");
         this.activo = new BooleanExpressionImpl(this, "activo");
         this.repositoryService = new ObjectExpressionImpl<org.apache.isis.applib.services.repository.RepositoryService>(this, "repositoryService");
@@ -49,6 +67,8 @@ public class QModelos extends PersistableExpressionImpl<Modelos> implements Pers
     {
         super(type, name, exprType);
         this.NAME_LENGTH = new NumericExpressionImpl<Integer>(this, "NAME_LENGTH");
+        this.marcas = new domainapp.dom.marca.QMarcas(this, "marcas", 5);
+        this.tipoVehiculo = new domainapp.dom.tipoVehiculo.QTipoVehiculo(this, "tipoVehiculo", 5);
         this.nombre = new StringExpressionImpl(this, "nombre");
         this.activo = new BooleanExpressionImpl(this, "activo");
         this.repositoryService = new ObjectExpressionImpl<org.apache.isis.applib.services.repository.RepositoryService>(this, "repositoryService");

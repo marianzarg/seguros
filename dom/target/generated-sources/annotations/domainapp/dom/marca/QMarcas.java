@@ -28,7 +28,7 @@ public class QMarcas extends PersistableExpressionImpl<Marcas> implements Persis
     }
 
     public final NumericExpression<Integer> NAME_LENGTH;
-    public final StringExpression nombre;
+    public final StringExpression marcasNombre;
     public final BooleanExpression activo;
     public final ObjectExpression<org.apache.isis.applib.services.repository.RepositoryService> repositoryService;
     public final ObjectExpression<org.apache.isis.applib.services.title.TitleService> titleService;
@@ -38,7 +38,7 @@ public class QMarcas extends PersistableExpressionImpl<Marcas> implements Persis
     {
         super(parent, name);
         this.NAME_LENGTH = new NumericExpressionImpl<Integer>(this, "NAME_LENGTH");
-        this.nombre = new StringExpressionImpl(this, "nombre");
+        this.marcasNombre = new StringExpressionImpl(this, "marcasNombre");
         this.activo = new BooleanExpressionImpl(this, "activo");
         this.repositoryService = new ObjectExpressionImpl<org.apache.isis.applib.services.repository.RepositoryService>(this, "repositoryService");
         this.titleService = new ObjectExpressionImpl<org.apache.isis.applib.services.title.TitleService>(this, "titleService");
@@ -49,7 +49,7 @@ public class QMarcas extends PersistableExpressionImpl<Marcas> implements Persis
     {
         super(type, name, exprType);
         this.NAME_LENGTH = new NumericExpressionImpl<Integer>(this, "NAME_LENGTH");
-        this.nombre = new StringExpressionImpl(this, "nombre");
+        this.marcasNombre = new StringExpressionImpl(this, "marcasNombre");
         this.activo = new BooleanExpressionImpl(this, "activo");
         this.repositoryService = new ObjectExpressionImpl<org.apache.isis.applib.services.repository.RepositoryService>(this, "repositoryService");
         this.titleService = new ObjectExpressionImpl<org.apache.isis.applib.services.title.TitleService>(this, "titleService");

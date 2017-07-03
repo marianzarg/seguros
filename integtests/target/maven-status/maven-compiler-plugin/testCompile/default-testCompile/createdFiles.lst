@@ -1,5 +1,5 @@
-domainapp/integtests/specs/RunSpecs.class
-domainapp/integtests/bootstrap/DomainAppSystemInitializer$1.class
-domainapp/integtests/bootstrap/DomainAppSystemInitializer.class
-domainapp/integtests/tests/DomainAppIntegTest.class
-domainapp/integtests/specglue/BootstrappingGlue.class
+domainapp\integtests\bootstrap\DomainAppSystemInitializer$1.class
+domainapp\integtests\specglue\BootstrappingGlue.class
+domainapp\integtests\tests\DomainAppIntegTest.class
+domainapp\integtests\specs\RunSpecs.class
+domainapp\integtests\bootstrap\DomainAppSystemInitializer.class

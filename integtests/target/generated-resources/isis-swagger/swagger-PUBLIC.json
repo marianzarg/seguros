@@ -142,8 +142,8 @@
         "method" : {
           "type" : "string",
           "description" : "HTTP verb to access",
-          "enum" : [ "GET", "POST", "PUT", "DELETE" ],
-          "default" : "GET"
+          "default" : "GET",
+          "enum" : [ "GET", "POST", "PUT", "DELETE" ]
         },
         "type" : {
           "type" : "string",
