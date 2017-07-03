@@ -53,7 +53,7 @@ import domainapp.dom.tipoVehiculo.TipoVehiculo;
                         + "FROM domainapp.dom.simple.Modelos "
                         + "WHERE activo == false ") 
 })
-@javax.jdo.annotations.Unique(name="Modelos_nombre_UNQ", members = {"nombre"})
+@javax.jdo.annotations.Unique(name="Modelos_nombre_UNQ", members = {"nombre","marcas"})
 @DomainObject(
         publishing = Publishing.ENABLED,
         auditing = Auditing.ENABLED
