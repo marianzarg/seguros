@@ -13,6 +13,7 @@ import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.SemanticsOf;
+import org.apache.isis.applib.annotation.DomainServiceLayout.MenuBar;
 import org.apache.isis.applib.services.eventbus.ActionDomainEvent;
 
 import domainapp.dom.cliente.Clientes;
